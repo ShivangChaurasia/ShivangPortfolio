@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 // Asset Imports
-import AspirelensImg from "../assets/projects/Aspirelens.png";
-import WipeDataImg from "../assets/projects/WipeData.png";
-import StudySyncImg from "../assets/projects/StudySync.png";
-import RupeekImg from "../assets/projects/Rupeek.png";
-import GiftRecommenderImg from "../assets/projects/GiftRecommender.png";
-import LeaveOrbitImg from "../assets/projects/leaveOrbit.png";
-import BMICalculatorImg from "../assets/projects/BMICalculator.png";
-import EcoRhythmImg from "../assets/projects/EcoRhythm.png";
-import CounterAppImg from "../assets/projects/CounterApp.png";
-import TodoAppImg from "../assets/projects/TodoApp.png";
+import AspirelensImg from "../assets/projects/aspirelens.png";
+import WipeDataImg from "../assets/projects/wipedata.png";
+import StudySyncImg from "../assets/projects/studysync.png";
+import RupeekImg from "../assets/projects/rupeek.png";
+import GiftRecommenderImg from "../assets/projects/giftrecommender.png";
+import LeaveOrbitImg from "../assets/projects/leaveorbit.png";
+import BMICalculatorImg from "../assets/projects/bmicalculator.png";
+import EcoRhythmImg from "../assets/projects/ecorhythm.png";
+import CounterAppImg from "../assets/projects/counterapp.png";
+import TodoAppImg from "../assets/projects/todoapp.png";
 
 export default function Projects() {
     const [activeTab, setActiveTab] = useState("All");
