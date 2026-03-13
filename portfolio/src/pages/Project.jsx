@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 // Asset Imports
@@ -12,9 +13,14 @@ import EcoRhythmImg from "../assets/projects/EcoRhythm.png";
 import CounterAppImg from "../assets/projects/CounterApp.png";
 
 export default function Projects() {
+    const [activeTab, setActiveTab] = useState("All");
+
+    const tabs = ["All", "Full Stack", "Frontend", "Web Basics"];
+
     const projects = [
         {
             title: "AspireLens",
+            category: "Full Stack",
             subtitle: "AI-Powered Career Intelligence Platform",
             description: "A comprehensive AI-driven career guidance ecosystem. Features intelligent tests, LLaMA-powered counselling, and a robust admin control system for personalized student growth.",
             tags: ["React (Vite)", "Node.js", "MongoDB", "Groq AI", "Tailwind CSS", "JWT"],
@@ -24,6 +30,7 @@ export default function Projects() {
         },
         {
             title: "Rupeek",
+            category: "Full Stack",
             subtitle: "Master Your Finances Launcher",
             description: "A premium finance tracking application featuring secure Firebase authentication, interactive Recharts dashboards, and smart transaction management for personal wealth.",
             tags: ["React", "Firebase", "Tailwind CSS", "Recharts", "Lottie React", "Context API"],
@@ -33,6 +40,7 @@ export default function Projects() {
         },
         {
             title: "LeaveOrbit",
+            category: "Full Stack",
             subtitle: "Intelligent Leave Management System",
             description: "Professional-grade employee management platform with automated workflows, real-time status tracking, and organizational compliance tools using the MERN stack.",
             tags: ["React", "Node.js", "Express", "MongoDB", "Framer Motion", "Firebase SDK"],
@@ -42,6 +50,7 @@ export default function Projects() {
         },
         {
             title: "WipeData",
+            category: "Full Stack",
             subtitle: "Privacy-Focused Data Janitor",
             description: "A specialized utility for secure data cleaning and privacy management, ensuring complete removal of sensitive information from web environments.",
             tags: ["Node.js", "Express", "MongoDB", "Tailwind CSS", "API Security"],
@@ -51,6 +60,7 @@ export default function Projects() {
         },
         {
             title: "GiftRecommender",
+            category: "Frontend",
             subtitle: "AI-Driven Personal Shopper",
             description: "Intelligent chatbot that generates personalized gift ideas using natural language processing, budget-aware filtering, and real-time query detection.",
             tags: ["JavaScript", "Groq AI", "Particles.js", "Tailwind CSS", "Bootstrap"],
@@ -60,6 +70,7 @@ export default function Projects() {
         },
         {
             title: "StudySync",
+            category: "Web Basics",
             subtitle: "Smart Study Planner & Sync",
             description: "A lightweight academic organizer with subject management, priority tracking, and persistent schedule planning using purely local data architectures.",
             tags: ["HTML5", "Vanilla JS", "LocalStorage", "Tailwind CSS", "Lottie Animation"],
@@ -69,6 +80,7 @@ export default function Projects() {
         },
         {
             title: "EcoRhythm",
+            category: "Web Basics",
             subtitle: "Environmental Impact Reporter",
             description: "Social-impact platform enabling users to report civic issues like pollution and injured animals. Features live location fetching and NGO connectivity.",
             tags: ["HTML5", "CSS3", "JavaScript", "Google Maps API", "Web Services"],
@@ -78,6 +90,7 @@ export default function Projects() {
         },
         {
             title: "BMI Calculator",
+            category: "Web Basics",
             subtitle: "Health & Fitness Utility",
             description: "A sleek, responsive health tool for rapid Body Mass Index calculation with real-time feedback and category interpretation.",
             tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
@@ -87,6 +100,7 @@ export default function Projects() {
         },
         {
             title: "CounterApp",
+            category: "Frontend",
             subtitle: "Minimalist Utility Tool",
             description: "A fast, React-based state management demonstration tool designed for high-performance interaction and clean UI feedback.",
             tags: ["React", "Tailwind CSS", "State Management"],
@@ -96,6 +110,7 @@ export default function Projects() {
         },
         {
             title: "TodoApp",
+            category: "Frontend",
             subtitle: "Task Persistence Manager",
             description: "A robust task management application focusing on user experience, data persistence, and organized list architectures.",
             tags: ["React", "Tailwind CSS", "LocalStorage", "Modern UI"],
@@ -105,6 +120,7 @@ export default function Projects() {
         },
         {
             title: "PrithviPulse",
+            category: "Full Stack",
             subtitle: "Community Environmental Platform",
             description: "An upcoming community-driven platform to report environmental damage and connect with NGOs to promote faster civic action and awareness.",
             tags: ["MERN Stack", "Google Maps API", "Cloudinary", "Coming Soon"],
@@ -114,20 +130,42 @@ export default function Projects() {
         }
     ];
 
+    const filteredProjects = activeTab === "All"
+        ? projects
+        : projects.filter(project => project.category === activeTab);
+
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-main">
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Full-Stack <span className="text-gradient">Portfolio</span></h2>
                 <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light italic">
                     "Building scalable solutions from frontend elegance to backend precision."
                 </p>
             </div>
 
+            {/* Category Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-20 px-4">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-500 border ${
+                            activeTab === tab
+                                ? "bg-primary text-white border-primary shadow-lg shadow-primary/25 scale-105"
+                                : "bg-main/5 text-muted border-main/10 hover:bg-main/10 hover:border-main/20"
+                        }`}
+                    >
+                        {tab}
+                    </button>
+                ))}
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {projects.map((project, index) => (
+                {filteredProjects.map((project, index) => (
                     <div
-                        key={index}
-                        className="glass rounded-[2rem] overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-main/5 bg-main/5 flex flex-col"
+                        key={`${project.title}-${activeTab}`}
+                        style={{ animationDelay: `${index * 100}ms` }}
+                        className="glass rounded-[2rem] overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-main/5 bg-main/5 flex flex-col animate-slide-up"
                     >
                         <div className="relative h-64 overflow-hidden">
                             <img
@@ -181,7 +219,7 @@ export default function Projects() {
                                 {project.tags.map((tag, tIndex) => (
                                     <span
                                         key={tIndex}
-                                        className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 bg-main/5 border border-main/10 rounded-xl text-muted group-hover:text-primary group-hover:border-primary/20 transition-all"
+                                        className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 bg-main/5 border border-main/10 rounded-xl text-muted group-hover:text-primary group-hover:border-primary/20 transition-all font-mono"
                                     >
                                         {tag}
                                     </span>
