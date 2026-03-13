@@ -12,7 +12,8 @@ export default function BackgroundAnimation() {
 
         let animationFrameId;
         let particles = [];
-        const particleCount = 200;
+        // Increase population for a much denser particle field
+        const particleCount = 600;
         
         // Mouse defaults off-screen so they don't instantly burst
         let mouseX = -1000;
@@ -44,7 +45,8 @@ export default function BackgroundAnimation() {
                 }
 
                 this.color = this.getRandomColor();
-                this.opacity = Math.random() * 0.4 + 0.3; 
+                // Higher opacity so particles are clearly visible
+                this.opacity = Math.random() * 0.5 + 0.4; 
             }
 
             getRandomColor() {

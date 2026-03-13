@@ -59,42 +59,34 @@ export default function Contact() {
                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-40 h-40 bg-secondary/10 blur-3xl rounded-full pointer-events-none"></div>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10 items-stretch">
-                    {/* Left Side: Contact Info & Lottie */}
-                    <div className="flex flex-col justify-between">
-                        <div>
-                            {animationData && (
-                                <div className="mb-10 w-full max-w-xs opacity-90 mix-blend-screen drop-shadow-2xl pointer-events-none">
-                                    <Lottie animationData={animationData} loop={true} />
-                                </div>
-                            )}
-
-                            <div className="space-y-8 mb-12">
-                                {contactInfo.map((info, idx) => (
-                                    <a 
-                                        href={info.link} 
-                                        key={idx} 
-                                        className="flex items-center space-x-6 group hover:bg-white/5 p-4 rounded-3xl transition-all duration-300 -ml-4"
-                                    >
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl shadow-black/20">
-                                            {info.icon}
-                                        </div>
-                                        <div>
-                                            <p className="text-xs text-gray-500 uppercase font-black tracking-widest mb-1">{info.label}</p>
-                                            <p className="text-lg font-bold text-gray-200 group-hover:text-primary transition-colors">{info.value}</p>
-                                        </div>
-                                    </a>
-                                ))}
-                            </div>
+                    {/* Left Side: Contact Info */}
+                    <div className="flex flex-col justify-center items-center h-full space-y-12">
+                        <div className="space-y-8 w-full max-w-sm">
+                            {contactInfo.map((info, idx) => (
+                                <a 
+                                    href={info.link} 
+                                    key={idx} 
+                                    className="flex items-center space-x-6 group hover:bg-white/5 p-4 rounded-3xl transition-all duration-300 w-full"
+                                >
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl shadow-black/20 shrink-0">
+                                        {info.icon}
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500 uppercase font-black tracking-widest mb-1">{info.label}</p>
+                                        <p className="text-lg font-bold text-gray-200 group-hover:text-primary transition-colors">{info.value}</p>
+                                    </div>
+                                </a>
+                            ))}
                         </div>
 
-                        <div className="flex space-x-6">
+                        <div className="flex space-x-6 justify-center">
                             {socials.map((social, i) => (
                                 <a
                                     key={i}
                                     href={social.link}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center rounded-2xl hover:bg-primary hover:text-white hover:scale-110 shadow-lg active:scale-95 transition-all duration-300"
+                                    className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-2xl hover:bg-primary hover:text-white hover:scale-110 shadow-lg active:scale-95 transition-all duration-300"
                                 >
                                     {social.icon}
                                 </a>
