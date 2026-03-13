@@ -15,6 +15,9 @@ import htmlCssThinqubatorImg from "../assets/certs/HTML&CSS_Thinqubators.png";
 import mernThinqubatorImg from "../assets/certs/MERN_Thinqubator.png";
 import freeCodeCampImg from "../assets/certs/HTMLFreeCodeCamp.png";
 import cryptographyImg from "../assets/certs/NPTEL_Cryptography.png";
+import reactHackerRankImg from "../assets/certs/React-HackerRank.png";
+import jsHackerRankImg from "../assets/certs/JavaScript-HackerRank.png";
+import cssHackerRankImg from "../assets/certs/CSS-HackerRank.png";
 
 export default function Certifications() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -35,6 +38,25 @@ export default function Certifications() {
 
     const certifications = [
         {
+            title: "Full Stack Development with MERN",
+            issuer: "NASSCOM Foundation",
+            platform: "thingQbator",
+            date: "N/A",
+            link: "https://drive.google.com/file/d/1w3wjEuguSuD2n39TFJOs_whI6LRxyRGb/view?usp=sharing",
+            thumbnail: mernThinqubatorImg,
+            details: "Comprehensive MERN stack bootcamp focusing on real-world web application architecture."
+        },
+        {
+            title: "Foundations of Cryptography",
+            issuer: "IIIT Bangalore",
+            platform: "NPTEL / SWAYAM",
+            date: "Jan–Apr 2025",
+            id: "Roll No. NPTEL25CS31S1247500172",
+            link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
+            thumbnail: cryptographyImg,
+            details: "Academic dive into cryptographic algorithms, security protocols, and encryption."
+        },
+        {
             title: "The Bits and Bytes of Computer Networking",
             issuer: "Google",
             platform: "Coursera",
@@ -42,6 +64,91 @@ export default function Certifications() {
             link: "https://coursera.org/verify/57R6R13H4JIR",
             thumbnail: bitsBytesImg,
             details: "Comprehensive networking fundamentals: TCP/IP, DNS, DHCP, and network troubleshooting."
+        },
+        {
+            title: "React (Basic)",
+            issuer: "HackerRank",
+            platform: "HackerRank",
+            date: "16 Feb 2026",
+            id: "BB02C79AEEEB",
+            link: "https://www.hackerrank.com/certificates/bb02c79aeeeb",
+            thumbnail: reactHackerRankImg,
+            details: "Mastery of React components, state management, and reusable UI development."
+        },
+        {
+            title: "JavaScript (Basic)",
+            issuer: "HackerRank",
+            platform: "HackerRank",
+            date: "06 Feb 2026",
+            id: "E0A56379D18A",
+            link: "https://www.hackerrank.com/certificates/e0a56379d18a",
+            thumbnail: jsHackerRankImg,
+            details: "Demonstrated proficiency in core algorithm logic, data structures, and ES6+ syntax."
+        },
+        {
+            title: "Master Generative AI & Generative AI Tools (ChatGPT & More)",
+            issuer: "Udemy",
+            platform: "Udemy",
+            date: "30 Aug 2025",
+            id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
+            link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
+            thumbnail: generativeAiImg,
+            details: "End-to-end training in generative tools for productivity and application enhancement."
+        },
+        {
+            title: "Build Generative AI Apps and Solutions with No-Code Tools",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "29 Aug 2025",
+            link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
+            thumbnail: buildGenAIImg,
+            details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
+        },
+        {
+            title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "15 Aug 2025",
+            link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
+            thumbnail: chatGptImg,
+            details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
+        },
+        {
+            title: "CSS (Basic)",
+            issuer: "HackerRank",
+            platform: "HackerRank",
+            date: "15 Oct 2025",
+            id: "CD3F25DD346B",
+            link: "https://www.hackerrank.com/certificates/cd3f25dd346b",
+            thumbnail: cssHackerRankImg,
+            details: "Building responsive layouts and professional styling with modern CSS properties."
+        },
+        {
+            title: "Responsive Web Design Developer Certification",
+            issuer: "freeCodeCamp",
+            platform: "freeCodeCamp",
+            date: "28 Oct 2023",
+            link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
+            thumbnail: freeCodeCampImg,
+            details: "Industry-standard certification for mastered front-end responsive design techniques."
+        },
+        {
+            title: "HTML & CSS",
+            issuer: "NASSCOM Foundation (Cisco CSR Program)",
+            platform: "thingQbator",
+            date: "N/A",
+            link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
+            thumbnail: htmlCssThinqubatorImg,
+            details: "Building responsive layouts and semantic web structures with modern CSS."
+        },
+        {
+            title: "Computational Theory: Language Principle & Finite Automata Theory",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "28 Aug 2025",
+            link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
+            thumbnail: computationalTheoryImg,
+            details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
         },
         {
             title: "Introduction to Hardware and Operating Systems",
@@ -71,43 +178,6 @@ export default function Certifications() {
             details: "Layered network models, data transmission, and communication protocols."
         },
         {
-            title: "Build Generative AI Apps and Solutions with No-Code Tools",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "29 Aug 2025",
-            link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
-            thumbnail: buildGenAIImg,
-            details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
-        },
-        {
-            title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "15 Aug 2025",
-            link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
-            thumbnail: chatGptImg,
-            details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
-        },
-        {
-            title: "Computational Theory: Language Principle & Finite Automata Theory",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "28 Aug 2025",
-            link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
-            thumbnail: computationalTheoryImg,
-            details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
-        },
-        {
-            title: "Master Generative AI & Generative AI Tools (ChatGPT & More)",
-            issuer: "Udemy",
-            platform: "Udemy",
-            date: "30 Aug 2025",
-            id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
-            link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
-            thumbnail: generativeAiImg,
-            details: "End-to-end training in generative tools for productivity and application enhancement."
-        },
-        {
             title: "Hone Your Communication Skills for Successful Career",
             issuer: "Centre for Professional Enhancement (LPU)",
             platform: "LPU",
@@ -116,43 +186,6 @@ export default function Certifications() {
             link: "https://drive.google.com/file/d/1hcOa9R5fyg1YgZNx9p40Hv3vGBFqJlAQ/view?usp=sharing",
             thumbnail: communicationSkillsImg,
             details: "Professional communication, soft skills, and career-oriented leadership training."
-        },
-        {
-            title: "HTML & CSS",
-            issuer: "NASSCOM Foundation (Cisco CSR Program)",
-            platform: "thingQbator",
-            date: "N/A",
-            link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
-            thumbnail: htmlCssThinqubatorImg,
-            details: "Building responsive layouts and semantic web structures with modern CSS."
-        },
-        {
-            title: "Full Stack Development with MERN",
-            issuer: "NASSCOM Foundation",
-            platform: "thingQbator",
-            date: "N/A",
-            link: "https://drive.google.com/file/d/1w3wjEuguSuD2n39TFJOs_whI6LRxyRGb/view?usp=sharing",
-            thumbnail: mernThinqubatorImg,
-            details: "Comprehensive MERN stack bootcamp focusing on real-world web application architecture."
-        },
-        {
-            title: "Responsive Web Design Developer Certification",
-            issuer: "freeCodeCamp",
-            platform: "freeCodeCamp",
-            date: "28 Oct 2023",
-            link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
-            thumbnail: freeCodeCampImg,
-            details: "Industry-standard certification for mastered front-end responsive design techniques."
-        },
-        {
-            title: "Foundations of Cryptography",
-            issuer: "IIIT Bangalore",
-            platform: "NPTEL / SWAYAM",
-            date: "Jan–Apr 2025",
-            id: "Roll No. NPTEL25CS31S1247500172",
-            link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
-            thumbnail: cryptographyImg,
-            details: "Academic dive into cryptographic algorithms, security protocols, and encryption."
         }
     ];
 

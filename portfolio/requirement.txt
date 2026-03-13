@@ -95,6 +95,10 @@ Date of Issue: Jan–Apr 2025
 Link: https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing
 
 
+CSS Hackerrank: https://www.hackerrank.com/certificates/cd3f25dd346b
+Js Hackerrank: https://www.hackerrank.com/certificates/e0a56379d18a
+
+React Hackerrank: https://www.hackerrank.com/certificates/bb02c79aeeeb
 
 
 
@@ -105,6 +109,8 @@ Add these badges in the certificates section:
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="7a6d3a9b-b7f2-4a8e-9cc5-8f9267faf3bb" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9e30672f-13dd-439c-b491-6354746f3881" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="35298063-104b-49b8-b6dd-cbf785965d01" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+
 
 
 
