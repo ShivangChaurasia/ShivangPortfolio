@@ -6,9 +6,28 @@ import CodolioCards from "../components/CodolioCards";
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [typedName, setTypedName] = useState("");
+    const [isTypingDone, setIsTypingDone] = useState(false);
+    const fullName = "Shivang Chaurasia";
 
     useEffect(() => {
-        setIsLoaded(true);
+        setTimeout(() => setIsLoaded(true), 100);
+        let currentIndex = 0;
+        
+        const startTyping = setTimeout(() => {
+            const typingInterval = setInterval(() => {
+                if (currentIndex <= fullName.length) {
+                    setTypedName(fullName.slice(0, currentIndex));
+                    currentIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    setIsTypingDone(true);
+                }
+            }, 100);
+            return () => clearInterval(typingInterval);
+        }, 600);
+
+        return () => clearTimeout(startTyping);
     }, []);
 
     const sections = [
@@ -37,47 +56,49 @@ export default function Home() {
                     </div>
 
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-main drop-shadow-md">
-                        Hi, I'm <span className="text-amber-400">Shivang Chaurasia</span>
+                        Hi, I'm <span className="text-amber-400">{typedName}<span className="inline-block w-[3px] h-[1em] bg-amber-400 animate-pulse ml-1 align-middle translate-y-[-2px]"></span></span>
                     </h1>
 
-                    <h2 className="text-lg md:text-2xl text-amber-400 font-semibold mb-6 tracking-wide drop-shadow-sm">
-                        Backend Developer
-                    </h2>
+                    <div className={`flex flex-col items-center transition-all duration-1000 transform ${isTypingDone ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                        <h2 className="text-lg md:text-2xl text-amber-400 font-semibold mb-6 tracking-wide drop-shadow-sm">
+                            Backend Developer
+                        </h2>
 
-                    <p className="max-w-4xl text-base md:text-lg text-main mb-6 font-light leading-relaxed">
-                        I am a <span className="font-medium italic text-main">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-amber-400 font-bold">backend development</span>, <span className="text-teal-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-rose-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
-                    </p>
+                        <p className="max-w-4xl text-base md:text-lg text-main mb-6 font-light leading-relaxed">
+                            I am a <span className="font-medium italic text-main">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-amber-400 font-bold">backend development</span>, <span className="text-teal-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-rose-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
+                        </p>
 
-                    <p className="max-w-2xl text-sm md:text-base text-muted mb-12 font-medium tracking-wide">
-                        MERN Stack | Backend Systems | REST APIs
-                    </p>
+                        <p className="max-w-2xl text-sm md:text-base text-muted mb-12 font-medium tracking-wide">
+                            MERN Stack | Backend Systems | REST APIs
+                        </p>
 
-                    <div className="flex flex-wrap justify-center gap-6">
-                        <Link
-                            to="/projects"
-                            className="bg-main text-bg-base hover:opacity-90 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg flex items-center space-x-2 active:scale-95"
-                        >
-                            <span>View Projects</span>
-                            <Briefcase className="w-5 h-5 ml-1" />
-                        </Link>
-                        
-                        <a
-                            href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
-                        >
-                            <span>Download Resume</span>
-                            <Download className="w-5 h-5 ml-1" />
-                        </a>
+                        <div className="flex flex-wrap justify-center gap-6">
+                            <Link
+                                to="/projects"
+                                className="bg-main text-bg-base hover:opacity-90 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg flex items-center space-x-2 active:scale-95"
+                            >
+                                <span>View Projects</span>
+                                <Briefcase className="w-5 h-5 ml-1" />
+                            </Link>
+                            
+                            <a
+                                href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
+                            >
+                                <span>Download Resume</span>
+                                <Download className="w-5 h-5 ml-1" />
+                            </a>
 
-                        <Link
-                            to="/contact"
-                            className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
-                        >
-                            <span>Contact Me</span>
-                            <Mail className="w-5 h-5 ml-1" />
-                        </Link>
+                            <Link
+                                to="/contact"
+                                className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
+                            >
+                                <span>Contact Me</span>
+                                <Mail className="w-5 h-5 ml-1" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
