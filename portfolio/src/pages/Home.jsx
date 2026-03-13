@@ -51,7 +51,7 @@ export default function Home() {
                         <img
                             src={profileImg}
                             alt="Shivang Chaurasia"
-                            className="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-2 border-white/10 shadow-2xl z-10"
+                            className="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-2 border-white/10 shadow-2xl z-10 object-cover"
                         />
                     </div>
 
