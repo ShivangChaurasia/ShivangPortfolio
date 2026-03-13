@@ -40,15 +40,15 @@ export default function Home() {
                     </div>
 
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-md">
-                        Hi, I'm <span className="text-cyan-400">Shivang Chaurasia</span>
+                        Hi, I'm <span className="text-amber-400">Shivang Chaurasia</span>
                     </h1>
 
-                    <h2 className="text-lg md:text-2xl text-cyan-400 font-semibold mb-6 tracking-wide drop-shadow-sm">
+                    <h2 className="text-lg md:text-2xl text-amber-400 font-semibold mb-6 tracking-wide drop-shadow-sm">
                         Backend Developer
                     </h2>
 
                     <p className="max-w-4xl text-base md:text-lg text-slate-300 mb-6 font-light leading-relaxed">
-                        I am a <span className="text-white font-medium italic">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-cyan-400 font-bold">backend development</span>, <span className="text-blue-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-purple-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
+                        I am a <span className="text-white font-medium italic">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-amber-400 font-bold">backend development</span>, <span className="text-teal-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-rose-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
                     </p>
 
                     <p className="max-w-2xl text-sm md:text-base text-slate-400 mb-12 font-medium tracking-wide">

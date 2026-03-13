@@ -12,11 +12,13 @@ export default function BackgroundAnimation() {
 
         let animationFrameId;
         let particles = [];
-        const particleCount = 250;
-        const mouse = { x: -1000, y: -1000, radius: 120 };
-        let lastPulseTime = 0;
-        let isPulsing = false;
-        let pulseStartTime = 0;
+        const particleCount = 200;
+        
+        // Mouse defaults off-screen so they don't instantly burst
+        let mouseX = -1000;
+        let mouseY = -1000;
+        let isMoving = false;
+        let moveTimeout;
 
         class Particle {
             constructor() {
@@ -24,94 +26,85 @@ export default function BackgroundAnimation() {
             }
 
             reset() {
+                // Distribute evenly across the ENTIRE canvas
                 this.x = Math.random() * (canvas.width || window.innerWidth);
                 this.y = Math.random() * (canvas.height || window.innerHeight);
-                this.baseX = this.x;
-                this.baseY = this.y;
+
+                // Small drift velocity to keep the background alive
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
                 
-                // Parallax depth: close (fast/large), mid (normal), far (slow/small)
                 const depthRandom = Math.random();
                 if (depthRandom < 0.2) {
-                    this.depth = 1.5; // Foreground
-                    this.size = Math.random() * 1.5 + 2.5; // 2.5-4px
+                    this.size = Math.random() * 1.5 + 2.5; 
                 } else if (depthRandom < 0.6) {
-                    this.depth = 1.0; // Mid
-                    this.size = Math.random() * 1 + 2; // 2-3px
+                    this.size = Math.random() * 1 + 2; 
                 } else {
-                    this.depth = 0.5; // Background
-                    this.size = Math.random() * 1 + 1; // 1-2px
+                    this.size = Math.random() * 1 + 1; 
                 }
 
                 this.color = this.getRandomColor();
-                this.opacity = Math.random() * 0.4 + 0.3; // 0.3 - 0.7
-                
-                // Floating motion
-                this.floatAngle = Math.random() * Math.PI * 2;
-                this.floatSpeed = (Math.random() * 0.005 + 0.002) * this.depth;
-                this.floatRadius = Math.random() * 10 + 10; // 10-20px
-                
-                // Pulse state
-                this.pulseOffsetX = 0;
-                this.pulseOffsetY = 0;
+                this.opacity = Math.random() * 0.4 + 0.3; 
             }
 
             getRandomColor() {
                 const colors = [
-                    "255, 255, 255", // white #ffffff
-                    "34, 211, 238",  // cyan #22d3ee
-                    "59, 130, 246",  // blue #3b82f6
-                    "168, 85, 247",  // purple #a855f7
-                    "249, 115, 22"   // orange #f97316
+                    "255, 255, 255", // white
+                    "251, 191, 36",  // gold
+                    "217, 119, 6",   // deep amber
+                    "20, 184, 166",  // ethnic teal
+                    "225, 29, 72"    // ruby
                 ];
                 return colors[Math.floor(Math.random() * colors.length)];
             }
 
-            update(time, pulseFactor) {
-                // 1. Floating Motion
-                this.floatAngle += this.floatSpeed;
-                const targetX = this.baseX + Math.cos(this.floatAngle) * this.floatRadius;
-                const targetY = this.baseY + Math.sin(this.floatAngle) * this.floatRadius;
-
-                // 2. Energy Pulse from center
-                if (isPulsing) {
-                    const centerX = canvas.width / 2;
-                    const centerY = canvas.height / 2;
-                    const angleFromCenter = Math.atan2(this.baseY - centerY, this.baseX - centerX);
-                    const expansionDist = 20 * pulseFactor * this.depth; // Scale by depth
-                    
-                    this.pulseOffsetX = Math.cos(angleFromCenter) * expansionDist;
-                    this.pulseOffsetY = Math.sin(angleFromCenter) * expansionDist;
-                } else {
-                    this.pulseOffsetX *= 0.9; // settle back smoothly
-                    this.pulseOffsetY *= 0.9;
+            update() {
+                // Keep particles slowly floating around when mouse is moving
+                if (isMoving) {
+                    this.x += this.vx;
+                    this.y += this.vy;
                 }
 
-                let currentTargetX = targetX + this.pulseOffsetX;
-                let currentTargetY = targetY + this.pulseOffsetY;
+                // Bounce off edges smoothly
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-                // 3. Mouse Interaction
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
+                // --- CURSOR INTERACTION ---
+                let dx = this.x - mouseX;
+                let dy = this.y - mouseY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < mouse.radius) {
-                    const forceDirectionX = dx / distance;
-                    const forceDirectionY = dy / distance;
-                    const force = (mouse.radius - distance) / mouse.radius;
-                    // repel strength medium ~ 30
-                    currentTargetX -= forceDirectionX * force * 30 * this.depth;
-                    currentTargetY -= forceDirectionY * force * 30 * this.depth;
+                // Visibility Logic: Invisible outside of ~5cm (approx 250px radius)
+                this.currentOpacity = 0;
+                if (dist < 250) {
+                    // Fade in proportionally as they get within the 250px boundary
+                    let fade = Math.max(0, Math.min(1, (250 - dist) / 50)); 
+                    this.currentOpacity = this.opacity * fade;
                 }
 
-                // Smooth return / easing
-                this.x += (currentTargetX - this.x) * 0.04;
-                this.y += (currentTargetY - this.y) * 0.04;
+                // If cursor is actively moving, particles within 150px try to run away
+                if (isMoving && dist < 150) {
+                    // Force is inverse to distance
+                    let force = (150 - dist) / 150;
+                    this.x += (dx / dist) * force * 10; // Rapidly push outward
+                    this.y += (dy / dist) * force * 10;
+                }
+
+                // Strict 75px (~2cm) Exclusion Zone: Prevents any particle from being "behind" or near cursor
+                if (dist > 0 && dist < 75) {
+                    let pushRatio = 75 / dist;
+                    this.x = mouseX + dx * pushRatio;
+                    this.y = mouseY + dy * pushRatio;
+                }
             }
 
             draw() {
-                ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+                // Do not render if completely invisible
+                if (!this.currentOpacity || this.currentOpacity <= 0) return;
+
+                ctx.fillStyle = `rgba(${this.color}, ${this.currentOpacity})`;
                 ctx.shadowBlur = this.size * 2;
-                ctx.shadowColor = `rgba(${this.color}, ${this.opacity})`;
+                ctx.shadowColor = `rgba(${this.color}, ${this.currentOpacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.closePath();
@@ -134,40 +127,22 @@ export default function BackgroundAnimation() {
         };
 
         const onMouseMove = (event) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            isMoving = true;
+            clearTimeout(moveTimeout);
+            moveTimeout = setTimeout(() => {
+                isMoving = false; // "Paused" state when mouse stops
+            }, 50);
         };
 
-        const onMouseLeave = () => {
-            mouse.x = -1000;
-            mouse.y = -1000;
-        };
-
-        const animate = (time) => {
+        const animate = () => {
             // Background color
-            ctx.fillStyle = "#0f172a";
+            ctx.fillStyle = "#0f172a"; // slate 900
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Handle Pulse timing
-            if (!isPulsing && time - lastPulseTime > 6000) { // Every ~6 seconds
-                isPulsing = true;
-                pulseStartTime = time;
-                lastPulseTime = time;
-            }
-
-            let pulseFactor = 0;
-            if (isPulsing) {
-                const pulseProgress = (time - pulseStartTime) / 2000; // 2 second pulse duration
-                if (pulseProgress >= 1) {
-                    isPulsing = false;
-                } else {
-                    // Sine wave easing for smooth out and back
-                    pulseFactor = Math.sin(pulseProgress * Math.PI); 
-                }
-            }
-
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update(time, pulseFactor);
+                particles[i].update();
                 particles[i].draw();
             }
             animationFrameId = requestAnimationFrame(animate);
@@ -175,14 +150,13 @@ export default function BackgroundAnimation() {
 
         window.addEventListener("resize", resize);
         window.addEventListener("mousemove", onMouseMove);
-        window.addEventListener("mouseleave", onMouseLeave);
         resize();
         requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener("resize", resize);
             window.removeEventListener("mousemove", onMouseMove);
-            window.removeEventListener("mouseleave", onMouseLeave);
+            clearTimeout(moveTimeout);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);
