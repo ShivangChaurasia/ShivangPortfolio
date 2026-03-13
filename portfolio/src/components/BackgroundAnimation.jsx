@@ -40,86 +40,87 @@ export default function BackgroundAnimation({ theme }) {
             ];
         };
 
-        class Particle {
-            constructor() {
-                this.reset();
-            }
+        const createParticle = () => {
+            const p = {};
 
-            reset() {
-                this.x = Math.random() * (canvas.width || window.innerWidth);
-                this.y = Math.random() * (canvas.height || window.innerHeight);
+            p.reset = () => {
+                p.x = Math.random() * (canvas.width || window.innerWidth);
+                p.y = Math.random() * (canvas.height || window.innerHeight);
 
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
+                p.vx = (Math.random() - 0.5) * 0.5;
+                p.vy = (Math.random() - 0.5) * 0.5;
                 
                 const depthRandom = Math.random();
                 if (depthRandom < 0.2) {
-                    this.size = Math.random() * 1.5 + 2.5; 
+                    p.size = Math.random() * 1.5 + 2.5; 
                 } else if (depthRandom < 0.6) {
-                    this.size = Math.random() * 1 + 2; 
+                    p.size = Math.random() * 1 + 2; 
                 } else {
-                    this.size = Math.random() * 1 + 1; 
+                    p.size = Math.random() * 1 + 1; 
                 }
 
-                this.updateColor();
-                this.opacity = Math.random() * 0.5 + 0.4; 
-            }
+                p.updateColor();
+                p.opacity = Math.random() * 0.5 + 0.4; 
+            };
 
-            updateColor() {
+            p.updateColor = () => {
                 const colors = getColorsForTheme(theme);
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-            }
+                p.color = colors[Math.floor(Math.random() * colors.length)];
+            };
 
-            update() {
+            p.update = () => {
                 if (isMoving) {
-                    this.x += this.vx;
-                    this.y += this.vy;
+                    p.x += p.vx;
+                    p.y += p.vy;
                 }
 
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-                let dx = this.x - mouseX;
-                let dy = this.y - mouseY;
+                let dx = p.x - mouseX;
+                let dy = p.y - mouseY;
                 let dist = Math.sqrt(dx * dx + dy * dy);
 
-                this.currentOpacity = 0;
+                p.currentOpacity = 0;
                 if (dist < 250) {
                     let fade = Math.max(0, Math.min(1, (250 - dist) / 50)); 
-                    this.currentOpacity = this.opacity * fade;
+                    p.currentOpacity = p.opacity * fade;
                 }
 
                 if (isMoving && dist < 150) {
                     let force = (150 - dist) / 150;
-                    this.x += (dx / dist) * force * 10;
-                    this.y += (dy / dist) * force * 10;
+                    p.x += (dx / dist) * force * 10;
+                    p.y += (dy / dist) * force * 10;
                 }
 
                 if (dist > 0 && dist < 75) {
                     let pushRatio = 75 / dist;
-                    this.x = mouseX + dx * pushRatio;
-                    this.y = mouseY + dy * pushRatio;
+                    p.x = mouseX + dx * pushRatio;
+                    p.y = mouseY + dy * pushRatio;
                 }
-            }
+            };
 
-            draw() {
-                if (!this.currentOpacity || this.currentOpacity <= 0) return;
+            p.draw = () => {
+                if (!p.currentOpacity || p.currentOpacity <= 0) return;
 
-                ctx.fillStyle = `rgba(${this.color}, ${this.currentOpacity})`;
-                ctx.shadowBlur = this.size * 2;
-                ctx.shadowColor = `rgba(${this.color}, ${this.currentOpacity})`;
+                ctx.fillStyle = `rgba(${p.color}, ${p.currentOpacity})`;
+                ctx.shadowBlur = p.size * 2;
+                ctx.shadowColor = `rgba(${p.color}, ${p.currentOpacity})`;
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.closePath();
                 ctx.fill();
                 ctx.shadowBlur = 0;
-            }
-        }
+            };
+
+            p.reset();
+            return p;
+        };
 
         const init = () => {
             particlesRef.current = [];
             for (let i = 0; i < particleCount; i++) {
-                particlesRef.current.push(new Particle());
+                particlesRef.current.push(createParticle());
             }
         };
 
