@@ -1,59 +1,37 @@
 import { Trophy, Calendar, ExternalLink, Code2, GitCommit, GitPullRequest, Star, Award, Target, Flame, Activity } from "lucide-react";
 
-// HackerRank Star Component
-const HRStar = () => (
-    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" className="w-4 h-4 text-emerald-500 drop-shadow-sm">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </svg>
-);
+import badge50Days from "../assets/Achievements/50daysBadge.png";
+import badgePullShark from "../assets/Achievements/PullShark.png";
+import badgeQuickDraw from "../assets/Achievements/QuickDraw.png";
+import badgeYolo from "../assets/Achievements/YOLO.png";
+import badgeJava from "../assets/Achievements/Java.png";
+import badgePython from "../assets/Achievements/Pyhton.png";
+import badgeProblemSolving from "../assets/Achievements/ProblemSolving.png";
+import badgeC from "../assets/Achievements/C.png";
+import badgeJs from "../assets/Achievements/Js.png";
 
-// Custom Badge Renders
-const LeetCodeBadge = () => (
-    <div className="flex flex-col items-center justify-center p-2">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20 border-2 border-orange-300 relative">
-            <div className="absolute inset-1 border border-orange-200/50 rounded-full"></div>
-            <span className="text-white font-black text-xl z-10 drop-shadow-md">50</span>
-            <div className="absolute -bottom-2 bg-gray-900 border border-orange-500/50 text-[9px] font-bold px-2 py-0.5 rounded-full text-orange-400">
-                DAYS
-            </div>
-        </div>
-    </div>
-);
+import thumbLeetcode from "../assets/Achievements/Leetcode.png";
+import thumbGithub from "../assets/Achievements/Github.png";
+import thumbHackerrank from "../assets/Achievements/Hackerrank.png";
+import thumbCodolio from "../assets/Achievements/Codolio.png";
 
-const GitHubHexBadge = ({ title, bgGrad, iconColor }) => (
-    <div className="flex flex-col items-center justify-center p-2">
-        <div className="relative w-16 h-16 flex items-center justify-center">
-            {/* Hexagon shape using svg/clip-path equivalent */}
-            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full drop-shadow-xl">
-                <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#gh-grad)" className="stroke-gray-600" strokeWidth="2" />
-                <defs>
-                    <linearGradient id="gh-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1e293b" />
-                        <stop offset="100%" stopColor="#0f172a" />
-                    </linearGradient>
-                </defs>
-            </svg>
-            <div className={`relative z-10 w-8 h-8 rounded-full ${bgGrad} flex items-center justify-center shadow-inner`}>
-                <GitCommit className={`w-4 h-4 ${iconColor}`} />
-            </div>
-        </div>
-        <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wide">{title}</span>
-    </div>
-);
-
-const HackerRankBadge = ({ title, stars }) => (
-    <div className="flex flex-col items-center p-2 bg-gray-900/50 rounded-xl border border-gray-800 hover:border-green-500/30 transition-colors w-28">
-        <div className="w-12 h-12 rounded-full border-2 border-green-500/20 bg-green-500/5 flex items-center justify-center mb-2">
-            <Code2 className="w-6 h-6 text-green-500" />
-        </div>
-        <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider mb-1 text-center h-8 flex items-center">{title}</span>
-        <div className="flex items-center space-x-0.5 mt-auto">
-            {[...Array(5)].map((_, i) => (
-                <div key={i} className={i < stars ? "opacity-100" : "opacity-20 grayscale"}>
-                    <HRStar />
+const ImageBadge = ({ src, alt, tooltip, isMarquee, description }) => (
+    <div className={`relative group/badge flex items-center ${isMarquee ? 'justify-center cursor-help marquee-item' : description ? 'justify-start w-full' : 'justify-center'}`}>
+        <div className="relative cursor-help shrink-0 flex items-center justify-center">
+            <img src={src} alt={alt} className={`w-16 h-16 object-contain transition-transform duration-300 drop-shadow-md ${isMarquee ? 'hover:scale-[1.2]' : 'hover:scale-110'}`} />
+            {isMarquee && (
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900/90 text-white text-xs font-bold rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 backdrop-blur-sm border border-white/10 shadow-xl">
+                    {tooltip}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900/90"></div>
                 </div>
-            ))}
+            )}
         </div>
+        {!isMarquee && description && (
+            <div className="ml-5 flex flex-col">
+                <span className="text-sm font-bold text-main">{alt}</span>
+                <span className="text-xs text-muted leading-relaxed mt-0.5">{description}</span>
+            </div>
+        )}
     </div>
 );
 
@@ -62,6 +40,7 @@ export default function Achievements() {
         {
             name: "LeetCode",
             icon: <Code2 className="w-8 h-8" />,
+            thumbnail: thumbLeetcode,
             url: "https://leetcode.com/u/shiva17ng/",
             color: "text-amber-500",
             bg: "bg-amber-500/10",
@@ -76,20 +55,15 @@ export default function Achievements() {
                 { label: "Past Year Submissions", value: "794", icon: <Activity className="w-4 h-4" /> }
             ],
             customBadgeRenderer: () => (
-                <div className="flex gap-4">
-                    <div className="relative group/badge cursor-help">
-                        <LeetCodeBadge />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900/90 text-white text-xs font-bold rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 backdrop-blur-sm border border-white/10 shadow-xl">
-                            50 Days Badge 2026
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900/90"></div>
-                        </div>
-                    </div>
+                <div className="flex flex-col gap-4 w-full">
+                    <ImageBadge isMarquee={false} src={badge50Days} alt="50 Days Badge" description="Earned for maintaining a 50-day consistent problem-solving streak." />
                 </div>
             )
         },
         {
             name: "GitHub",
             icon: <GitCommit className="w-8 h-8" />,
+            thumbnail: thumbGithub,
             url: "https://github.com/ShivangChaurasia",
             color: "text-gray-300",
             bg: "bg-gray-500/10",
@@ -104,27 +78,17 @@ export default function Achievements() {
                 { label: "Pull Requests", value: "4", icon: <GitPullRequest className="w-4 h-4" /> }
             ],
             customBadgeRenderer: () => (
-                <div className="flex gap-4">
-                    <div className="relative group/badge cursor-help">
-                        <GitHubHexBadge title="Pull Shark" bgGrad="bg-gradient-to-br from-blue-400 to-indigo-600" iconColor="text-white" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900/90 text-white text-xs font-bold rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 backdrop-blur-sm border border-white/10 shadow-xl">
-                            Pull Shark Achievement
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900/90"></div>
-                        </div>
-                    </div>
-                    <div className="relative group/badge cursor-help">
-                        <GitHubHexBadge title="Quickdraw" bgGrad="bg-gradient-to-br from-amber-400 to-orange-600" iconColor="text-white" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900/90 text-white text-xs font-bold rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 backdrop-blur-sm border border-white/10 shadow-xl">
-                            Quickdraw Achievement
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900/90"></div>
-                        </div>
-                    </div>
+                <div className="flex flex-col gap-5 w-full">
+                    <ImageBadge isMarquee={false} src={badgePullShark} alt="Pull Shark" description="Merged multiple pull requests in prominent public repositories." />
+                    <ImageBadge isMarquee={false} src={badgeQuickDraw} alt="Quickdraw" description="Closed issues or pull requests within 5 minutes of opening." />
+                    <ImageBadge isMarquee={false} src={badgeYolo} alt="YOLO" description="Merged a pull request without code review." />
                 </div>
             )
         },
         {
             name: "HackerRank",
             icon: <Award className="w-8 h-8" />,
+            thumbnail: thumbHackerrank,
             url: "https://www.hackerrank.com/profile/shiva17ng",
             color: "text-green-500",
             bg: "bg-green-500/10",
@@ -135,17 +99,19 @@ export default function Achievements() {
                 { label: "Platform Status", value: "Multi-Badge Earner", icon: <Trophy className="w-4 h-4" /> }
             ],
             customBadgeRenderer: () => (
-                <div className="flex flex-wrap gap-3 justify-center">
-                    <HackerRankBadge title="Java" stars={4} />
-                    <HackerRankBadge title="Python" stars={3} />
-                    <HackerRankBadge title="Problem Solving" stars={2} />
-                    <HackerRankBadge title="C Language" stars={1} />
+                <div className="flex flex-wrap gap-4 justify-center">
+                    <ImageBadge isMarquee={false} src={badgeJava} alt="Java (4★)" tooltip="Java" />
+                    <ImageBadge isMarquee={false} src={badgePython} alt="Python (3★)" tooltip="Python" />
+                    <ImageBadge isMarquee={false} src={badgeProblemSolving} alt="Problem Solving" tooltip="Problem Solving" />
+                    <ImageBadge isMarquee={false} src={badgeC} alt="C Language" tooltip="C Language" />
+                    <ImageBadge isMarquee={false} src={badgeJs} alt="10 Days of JS" tooltip="10 Days of JS" />
                 </div>
             )
         },
         {
             name: "Codolio",
             icon: <Target className="w-8 h-8" />,
+            thumbnail: thumbCodolio,
             url: "https://codolio.com/profile/shiva17ng",
             color: "text-blue-500",
             bg: "bg-blue-500/10",
@@ -173,6 +139,29 @@ export default function Achievements() {
                 </p>
             </div>
 
+            {/* Train Marquee Section for All Badges */}
+            <div className="mb-20 overflow-hidden relative group/marquee pt-16 pb-8">
+                <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-[var(--bg-color)] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-[var(--bg-color)] to-transparent z-10 pointer-events-none"></div>
+                
+                <div className="animate-marquee flex items-center space-x-12 px-6">
+                    {/* Double the list for seamless infinite scrolling */}
+                    {[...Array(2)].map((_, arrayIndex) => (
+                        <div key={arrayIndex} className="flex items-center space-x-12 shrink-0">
+                            <ImageBadge isMarquee={true} src={badge50Days} alt="50 Days" tooltip="LeetCode 50 Days" />
+                            <ImageBadge isMarquee={true} src={badgePullShark} alt="Pull Shark" tooltip="GitHub Pull Shark" />
+                            <ImageBadge isMarquee={true} src={badgeQuickDraw} alt="Quickdraw" tooltip="GitHub Quickdraw" />
+                            <ImageBadge isMarquee={true} src={badgeYolo} alt="YOLO" tooltip="GitHub YOLO" />
+                            <ImageBadge isMarquee={true} src={badgeJava} alt="Java" tooltip="HackerRank Java" />
+                            <ImageBadge isMarquee={true} src={badgePython} alt="Python" tooltip="HackerRank Python" />
+                            <ImageBadge isMarquee={true} src={badgeProblemSolving} alt="Problem Solving" tooltip="HR Problem Solving" />
+                            <ImageBadge isMarquee={true} src={badgeC} alt="C" tooltip="HackerRank C Language" />
+                            <ImageBadge isMarquee={true} src={badgeJs} alt="JS" tooltip="HackerRank 10 Days JS" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
                 {platforms.map((platform, idx) => (
                     <a
@@ -180,8 +169,16 @@ export default function Achievements() {
                         href={platform.url}
                         target="_blank"
                         rel="noreferrer"
-                        className={`glass-card p-8 rounded-3xl border border-main/10 flex flex-col h-full group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${platform.borderHover}`}
+                        className={`glass-card p-6 md:p-8 rounded-3xl border border-main/10 flex flex-col h-full group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${platform.borderHover}`}
                     >
+                        {/* Thumbnail */}
+                        {platform.thumbnail && (
+                            <div className="w-full h-48 mb-6 rounded-2xl overflow-hidden relative border border-main/5">
+                                <img src={platform.thumbnail} alt={`${platform.name} profile`} className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                            </div>
+                        )}
+
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center space-x-4">
@@ -204,7 +201,7 @@ export default function Achievements() {
                         </p>
 
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 flex-grow">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 items-start">
                             {platform.stats.map((stat, i) => (
                                 <div key={i} className="flex items-center p-3 rounded-xl bg-main/5 border border-main/5">
                                     <div className="mr-3 text-muted">{stat.icon}</div>

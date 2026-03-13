@@ -160,4 +160,53 @@ body {
     margin-left: 2px;
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  /* Ensure container takes full width so center calculation works if needed */
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* 
+  Since standard CSS doesn't know "where" an element is relative to the viewport dynamically
+  without JS, we can simulate a wave/pulse effect synced closely with the marquee duration.
+  Because the marquee translates total width in 20s, elements crossing the center 
+  can be given a continuous pulsing animation that creates the illusion.
+  However, the best pure CSS approach for "center of screen" scaling on a moving track
+  is usually a fixed mask, or a synchronized scale animation. 
+*/
+
+@keyframes scaleWave {
+  0%, 100% { transform: scale(1); opacity: 0.8; filter: grayscale(50%); }
+  50% { transform: scale(1.6); opacity: 1; filter: grayscale(0%); }
+}
+
+.marquee-item {
+  animation: scaleWave 4s infinite ease-in-out;
+}
+
+/* Stagger the animation across items to simulate the wave */
+.marquee-item:nth-child(1) { animation-delay: 0s; }
+.marquee-item:nth-child(2) { animation-delay: 0.5s; }
+.marquee-item:nth-child(3) { animation-delay: 1.0s; }
+.marquee-item:nth-child(4) { animation-delay: 1.5s; }
+.marquee-item:nth-child(5) { animation-delay: 2.0s; }
+.marquee-item:nth-child(6) { animation-delay: 2.5s; }
+.marquee-item:nth-child(7) { animation-delay: 3.0s; }
+.marquee-item:nth-child(8) { animation-delay: 3.5s; }
+.marquee-item:nth-child(9) { animation-delay: 4.0s; }
+
+.animate-marquee:hover .marquee-item {
+  animation-play-state: paused;
+}
+
 
