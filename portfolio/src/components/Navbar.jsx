@@ -29,14 +29,14 @@ export default function Navbar({ theme, toggleTheme }) {
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
             scrolled ? "py-4 glass shadow-lg" : "py-6 bg-transparent"
         }`}>
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center gap-4">
                 <Link to="/" className="text-2xl font-black tracking-tighter group transition-colors">
-                    <span className="text-primary group-hover:text-main transition-colors duration-300">Shivang</span>
+                    <span className="text-primary group-hover:text-main transition-colors duration-300">ShivangChaurasia</span>
                     <span className="text-main group-hover:text-primary transition-colors duration-300">.</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <ul className="hidden lg:flex items-center space-x-8">
+                <ul className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                     {navItems.map((item) => (
                         <li key={item.name}>
                             <Link
@@ -119,4 +119,4 @@ export default function Navbar({ theme, toggleTheme }) {
         </nav>
     );
 }
-
+

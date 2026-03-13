@@ -11,11 +11,12 @@ import LeaveOrbitImg from "../assets/projects/leaveOrbit.png";
 import BMICalculatorImg from "../assets/projects/BMICalculator.png";
 import EcoRhythmImg from "../assets/projects/EcoRhythm.png";
 import CounterAppImg from "../assets/projects/CounterApp.png";
+import TodoAppImg from "../assets/projects/TodoApp.png";
 
 export default function Projects() {
     const [activeTab, setActiveTab] = useState("All");
 
-    const tabs = ["All", "Full Stack", "Frontend", "Web Basics"];
+    const tabs = ["All", "Full Stack", "Frontend", "HTML"];
 
     const projects = [
         {
@@ -70,7 +71,7 @@ export default function Projects() {
         },
         {
             title: "StudySync",
-            category: "Web Basics",
+            category: "HTML",
             subtitle: "Smart Study Planner & Sync",
             description: "A lightweight academic organizer with subject management, priority tracking, and persistent schedule planning using purely local data architectures.",
             tags: ["HTML5", "Vanilla JS", "LocalStorage", "Tailwind CSS", "Lottie Animation"],
@@ -80,7 +81,7 @@ export default function Projects() {
         },
         {
             title: "EcoRhythm",
-            category: "Web Basics",
+            category: "HTML",
             subtitle: "Environmental Impact Reporter",
             description: "Social-impact platform enabling users to report civic issues like pollution and injured animals. Features live location fetching and NGO connectivity.",
             tags: ["HTML5", "CSS3", "JavaScript", "Google Maps API", "Web Services"],
@@ -90,7 +91,7 @@ export default function Projects() {
         },
         {
             title: "BMI Calculator",
-            category: "Web Basics",
+            category: "HTML",
             subtitle: "Health & Fitness Utility",
             description: "A sleek, responsive health tool for rapid Body Mass Index calculation with real-time feedback and category interpretation.",
             tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
@@ -100,7 +101,7 @@ export default function Projects() {
         },
         {
             title: "CounterApp",
-            category: "Frontend",
+            category: "HTML",
             subtitle: "Minimalist Utility Tool",
             description: "A fast, React-based state management demonstration tool designed for high-performance interaction and clean UI feedback.",
             tags: ["React", "Tailwind CSS", "State Management"],
@@ -116,7 +117,7 @@ export default function Projects() {
             tags: ["React", "Tailwind CSS", "LocalStorage", "Modern UI"],
             github: "https://github.com/ShivangChaurasia/TodoApp",
             live: "https://shivangchaurasia.github.io/TodoApp/",
-            image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?auto=format&fit=crop&q=80&w=1600"
+            image: TodoAppImg
         },
         {
             title: "PrithviPulse",
