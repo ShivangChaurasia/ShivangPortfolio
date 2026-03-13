@@ -112,7 +112,40 @@ Add these badges in the certificates section:
 
 
 
+Projects:
+    Aspirelens: Live: https://careerwithaspirelens.vercel.app/
+                GitHub: https://github.com/ShivangChaurasia/Aspirelens
 
+    WipeData : Live: wipe-data-sjp5.vercel.app
+               Github: https://github.com/ShivangChaurasia/Wipe-Data
+
+    StudySync: Live: shivangchaurasia.github.io/StudySync/
+               Github: https://github.com/ShivangChaurasia/StudySync
+
+    Rupeek : Live: rupeekfinances.vercel.app
+             Github: https://github.com/ShivangChaurasia/Rupeek-TheFinTracker
+
+    giftRecommender: Live: giftrecommender.vercel.app
+                    Github: https://github.com/ShivangChaurasia/AI-Gift-Recommender
+
+    LeaveOrbit: Live: https://leaveorbit.vercel.app/
+                Github: https://github.com/ShivangChaurasia/LeaveOrbit-Employee-Leave-Manager
+
+    BMI Calculator: Live: https://shivangchaurasia.github.io/BMICalculator/
+                    Github: https://github.com/ShivangChaurasia/BMICalculator
+
+    EcoRhythm : Live: https://shivangchaurasia.github.io/Environmental-Issue-Reporting/
+                Github: https://github.com/ShivangChaurasia/Environmental-Issue-Reporting
+
+    CounterApp  : Live: https://shivangchaurasia.github.io/CounterApp/
+                Github: https://github.com/ShivangChaurasia/CounterApp
+
+    TodoApp : Live: https://shivangchaurasia.github.io/TodoApp/
+                Github: https://github.com/ShivangChaurasia/TodoApp
+
+
+    PrithviPulse: Coming Soon... (PrithviPulse – Community & Environmental Issue Reporting Platform (Coming Soon)
+PrithviPulse is a community-driven platform designed to help people report environmental and civic issues such as pollution, injured animals, and sanitation problems. The system allows users to submit reports with media and location details while connecting them with NGOs, organizations, and government resources to encourage faster action and community participation. The project aims to promote environmental awareness and responsible reporting through technology.)
 
 
 
