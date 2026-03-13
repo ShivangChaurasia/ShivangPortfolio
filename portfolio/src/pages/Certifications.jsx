@@ -164,10 +164,10 @@ export default function Certifications() {
     ];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-white">
+        <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-main">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Professional <span className="text-gradient">Credentials</span></h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Professional <span className="text-gradient">Credentials</span></h2>
+                <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     Industry-recognized certifications representing specialized expertise in Networking, AI, and Full-Stack development.
                 </p>
             </div>
@@ -176,14 +176,14 @@ export default function Certifications() {
             <div className="mb-20">
                 <div className="flex items-center space-x-6 mb-12">
                     <ShieldCheck className="w-8 h-8 text-primary" />
-                    <h3 className="text-2xl font-black uppercase tracking-widest">Verified <span className="text-gradient">Badges</span></h3>
-                    <div className="h-px flex-grow bg-white/5"></div>
+                    <h3 className="text-2xl font-black uppercase tracking-widest text-main">Verified <span className="text-gradient">Badges</span></h3>
+                    <div className="h-px flex-grow bg-main/10"></div>
                 </div>
                 <div className="flex flex-wrap justify-center gap-10">
                     {badges.map((id) => (
                         <div 
                             key={id} 
-                            className="bg-white/5 p-4 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 shrink-0"
+                            className="bg-main/5 p-4 rounded-3xl border border-main/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 shrink-0"
                             data-iframe-width="150" 
                             data-iframe-height="270" 
                             data-share-badge-id={id} 
@@ -197,16 +197,16 @@ export default function Certifications() {
             <div>
                 <div className="flex items-center space-x-6 mb-12">
                     <Trophy className="w-8 h-8 text-amber-500" />
-                    <h3 className="text-2xl font-black uppercase tracking-widest">Academic <span className="text-gradient">& Professional</span></h3>
-                    <div className="h-px flex-grow bg-white/5"></div>
+                    <h3 className="text-2xl font-black uppercase tracking-widest text-main">Academic <span className="text-gradient">& Professional</span></h3>
+                    <div className="h-px flex-grow bg-main/10"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
                     {certifications.map((cert, index) => (
                         <div key={index} className="flip-card h-[450px] cursor-pointer group">
                             <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
                                 {/* Front Side */}
-                                <div className="flip-card-front glass relative overflow-hidden flex flex-col border-white/5 group-hover:border-primary/30 transition-all duration-500">
-                                    <div className="h-3/5 relative overflow-hidden">
+                                <div className="flip-card-front glass relative overflow-hidden flex flex-col border-main/10 group-hover:border-primary/30 transition-all duration-500">
+                                    <div className="h-3/5 relative overflow-hidden text-white">
                                         <img 
                                             src={cert.thumbnail} 
                                             alt={cert.title}
@@ -217,34 +217,34 @@ export default function Certifications() {
                                             <Award className="w-5 h-5" />
                                         </div>
                                     </div>
-                                    <div className="h-2/5 p-6 flex flex-col justify-center bg-black/40">
-                                        <h3 className="text-lg font-bold leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">{cert.title}</h3>
-                                        <p className="text-gray-400 text-xs font-light italic line-clamp-2">"{cert.details}"</p>
+                                    <div className="h-2/5 p-6 flex flex-col justify-center bg-bg-base/40">
+                                        <h3 className="text-lg font-bold leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2 text-main">{cert.title}</h3>
+                                        <p className="text-muted text-xs font-light italic line-clamp-2">"{cert.details}"</p>
                                     </div>
                                 </div>
 
                                 {/* Back Side */}
                                 <div className="flip-card-back glass absolute inset-0 p-8 flex flex-col justify-between border-primary/20 bg-primary/5">
                                     <div className="space-y-4">
-                                        <h4 className="text-base font-black text-white leading-tight uppercase tracking-wider mb-4 border-b border-white/10 pb-4">{cert.title}</h4>
+                                        <h4 className="text-base font-black text-main leading-tight uppercase tracking-wider mb-4 border-b border-main/10 pb-4">{cert.title}</h4>
                                         
                                         <div className="space-y-3">
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] text-primary font-black uppercase tracking-widest">Platform</span>
-                                                <span className="text-sm font-bold text-gray-200">{cert.platform}</span>
+                                                <span className="text-sm font-bold text-main/80">{cert.platform}</span>
                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] text-primary font-black uppercase tracking-widest">Issuing Organization</span>
-                                                <span className="text-sm font-bold text-gray-200">{cert.issuer}</span>
+                                                <span className="text-sm font-bold text-main/80">{cert.issuer}</span>
                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] text-primary font-black uppercase tracking-widest">Date of Issue</span>
-                                                <span className="text-sm font-bold text-gray-200">{cert.date}</span>
+                                                <span className="text-sm font-bold text-main/80">{cert.date}</span>
                                             </div>
                                             {cert.id && (
                                                 <div className="flex flex-col">
                                                     <span className="text-[10px] text-primary font-black uppercase tracking-widest">Certificate ID / S.No.</span>
-                                                    <span className="text-sm font-bold text-gray-200 break-all">{cert.id}</span>
+                                                    <span className="text-sm font-bold text-main/80 break-all">{cert.id}</span>
                                                 </div>
                                             )}
                                         </div>

@@ -20,11 +20,7 @@ export default function Home() {
     ];
 
     return (
-        <div className="min-h-screen relative z-10 w-full">
-            {/* Gradient Overlay for Readability */}
-            <div className="fixed inset-0 pointer-events-none -z-40" style={{
-                background: "linear-gradient(rgba(2,6,23,0.6), rgba(2,6,23,0.8))"
-            }}></div>
+        <div className="min-h-screen relative z-10 w-full transition-colors duration-500">
 
             <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center">
                 {/* Hero Section */}
@@ -39,7 +35,7 @@ export default function Home() {
                         />
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-md">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-main drop-shadow-md">
                         Hi, I'm <span className="text-amber-400">Shivang Chaurasia</span>
                     </h1>
 
@@ -47,18 +43,18 @@ export default function Home() {
                         Backend Developer
                     </h2>
 
-                    <p className="max-w-4xl text-base md:text-lg text-slate-300 mb-6 font-light leading-relaxed">
-                        I am a <span className="text-white font-medium italic">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-amber-400 font-bold">backend development</span>, <span className="text-teal-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-rose-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
+                    <p className="max-w-4xl text-base md:text-lg text-main mb-6 font-light leading-relaxed">
+                        I am a <span className="font-medium italic text-main">Computer Science undergraduate</span> at LPU with a strong focus on <span className="text-amber-400 font-bold">backend development</span>, <span className="text-teal-400 font-bold">full-stack web applications</span>, and problem-solving. I enjoy building scalable applications that combine modern web technologies with practical real-world use cases, including <span className="text-rose-400 font-medium tracking-wide">MERN stack development</span>, AI feature integration, and secure authentication systems.
                     </p>
 
-                    <p className="max-w-2xl text-sm md:text-base text-slate-400 mb-12 font-medium tracking-wide">
+                    <p className="max-w-2xl text-sm md:text-base text-muted mb-12 font-medium tracking-wide">
                         MERN Stack | Backend Systems | REST APIs
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link
                             to="/projects"
-                            className="bg-white text-slate-900 hover:bg-slate-200 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg flex items-center space-x-2 active:scale-95"
+                            className="bg-main text-bg-base hover:opacity-90 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg flex items-center space-x-2 active:scale-95"
                         >
                             <span>View Projects</span>
                             <Briefcase className="w-5 h-5 ml-1" />
@@ -68,7 +64,7 @@ export default function Home() {
                             href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
                             target="_blank"
                             rel="noreferrer"
-                            className="glass border border-slate-700 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
+                            className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
                         >
                             <span>Download Resume</span>
                             <Download className="w-5 h-5 ml-1" />
@@ -76,7 +72,7 @@ export default function Home() {
 
                         <Link
                             to="/contact"
-                            className="glass border border-slate-700 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
+                            className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
                         >
                             <span>Contact Me</span>
                             <Mail className="w-5 h-5 ml-1" />
@@ -87,8 +83,8 @@ export default function Home() {
                 {/* Section Previews */}
                 <div className={`w-full transition-all duration-1000 delay-300 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}>
                     <div className="flex items-center justify-between mb-12">
-                        <h2 className="text-3xl font-black">Quick <span className="text-gradient">Navigation</span></h2>
-                        <div className="h-[2px] flex-grow mx-8 bg-white/5 hidden md:block"></div>
+                        <h2 className="text-3xl font-black text-main">Quick <span className="text-gradient">Navigation</span></h2>
+                        <div className="h-[2px] flex-grow mx-8 bg-main/10 hidden md:block"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -99,11 +95,11 @@ export default function Home() {
                                 className="glass-card p-8 group flex flex-col justify-between hover:-translate-y-2 transition-all duration-500"
                             >
                                 <div>
-                                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl group-hover:shadow-primary/20">
+                                    <div className="w-14 h-14 rounded-2xl bg-main/5 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl group-hover:shadow-primary/20">
                                         {section.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{section.title}</h3>
-                                    <p className="text-gray-400 text-sm mb-8 leading-relaxed font-light">
+                                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors text-main">{section.title}</h3>
+                                    <p className="text-muted text-sm mb-8 leading-relaxed font-light">
                                         {section.desc}
                                     </p>
                                 </div>

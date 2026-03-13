@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BackgroundAnimation from "./components/BackgroundAnimation";
@@ -11,11 +12,29 @@ import Achievements from "./pages/Achievements";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem("theme") || "dark";
+    });
+
+    const toggleTheme = () => {
+        const newTheme = theme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+    };
+
+    useEffect(() => {
+        if (theme === "light") {
+            document.documentElement.classList.add("light");
+        } else {
+            document.documentElement.classList.remove("light");
+        }
+    }, [theme]);
+
     return (
         <Router>
             <BackgroundAnimation />
-            <div className="relative z-10">
-                <Navbar />
+            <div className="relative z-10 transition-colors duration-300">
+                <Navbar theme={theme} toggleTheme={toggleTheme} />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/skills" element={<Skills />} />

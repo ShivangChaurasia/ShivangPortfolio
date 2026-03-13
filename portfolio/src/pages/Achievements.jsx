@@ -28,8 +28,8 @@ export default function Achievements() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-6xl mx-auto animate-fade-in">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Major <span className="text-gradient">Achievements</span></h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Major <span className="text-gradient">Achievements</span></h2>
+                <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     Highlighting key milestones and recognitions from my academic and professional journey.
                 </p>
             </div>
@@ -60,11 +60,11 @@ export default function Achievements() {
                                 <Calendar className="w-3 h-3 mr-2" />
                                 {item.date}
                             </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors text-main">{item.title}</h3>
+                            <p className="text-muted text-sm leading-relaxed mb-6 font-light">
                                 {item.description}
                             </p>
-                            <div className="flex items-center text-sm font-bold text-gray-200 group-hover:text-primary transition-colors">
+                            <div className="flex items-center text-sm font-bold text-main group-hover:text-primary transition-colors">
                                 <span>Read More</span>
                                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
                             </div>

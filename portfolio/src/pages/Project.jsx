@@ -23,10 +23,10 @@ export default function Projects() {
     ];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-white">
+        <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-main">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Featured <span className="text-gradient">Projects</span></h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Featured <span className="text-gradient">Projects</span></h2>
+                <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     A showcase of my recent work, blending artificial intelligence with modern web architectures.
                 </p>
             </div>
@@ -35,7 +35,7 @@ export default function Projects() {
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        className="glass rounded-[2rem] overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-white/5 bg-white/5 flex flex-col"
+                        className="glass rounded-[2rem] overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-main/5 bg-main/5 flex flex-col"
                     >
                         <div className="relative h-64 overflow-hidden">
                             <img
@@ -69,11 +69,11 @@ export default function Projects() {
 
                         <div className="p-10 flex flex-col flex-grow">
                             <div className="mb-6">
-                                <h3 className="text-2xl font-black mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+                                <h3 className="text-2xl font-black mb-2 group-hover:text-primary transition-colors text-main">{project.title}</h3>
                                 <p className="text-primary/80 font-bold text-xs tracking-[0.1em] uppercase">{project.subtitle}</p>
                             </div>
                             
-                            <p className="text-gray-400 text-sm mb-8 leading-relaxed font-light">
+                            <p className="text-muted text-sm mb-8 leading-relaxed font-light">
                                 {project.description}
                             </p>
 
@@ -81,7 +81,7 @@ export default function Projects() {
                                 {project.tags.map((tag, tIndex) => (
                                     <span
                                         key={tIndex}
-                                        className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-gray-500 group-hover:text-primary group-hover:border-primary/20 transition-all"
+                                        className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 bg-main/5 border border-main/10 rounded-xl text-muted group-hover:text-primary group-hover:border-primary/20 transition-all"
                                     >
                                         {tag}
                                     </span>

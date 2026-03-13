@@ -41,8 +41,8 @@ export default function Skills() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Technical <span className="text-gradient">Arsenal</span></h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Technical <span className="text-gradient">Arsenal</span></h2>
+                <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     My diverse collection of tools and technologies categorized for better discoverability.
                 </p>
             </div>
@@ -56,7 +56,7 @@ export default function Skills() {
                         className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 ${
                             activeTab === tab 
                             ? "bg-primary text-white shadow-lg shadow-primary/30" 
-                            : "glass hover:bg-white/10 text-gray-400"
+                            : "glass hover:bg-main/10 text-muted"
                         } active:scale-95`}
                     >
                         {tab}
@@ -74,7 +74,7 @@ export default function Skills() {
                         <div className="mb-4 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
                             {skill.icon}
                         </div>
-                        <span className="text-sm font-bold tracking-wider text-gray-300 group-hover:text-primary transition-colors">
+                        <span className="text-sm font-bold tracking-wider text-main group-hover:text-primary transition-colors">
                             {skill.name}
                         </span>
                     </div>

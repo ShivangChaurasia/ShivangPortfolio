@@ -1,10 +1,19 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Download, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
 
-export default function Navbar() {
-    const location = useLocation();
+export default function Navbar({ theme, toggleTheme }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const navItems = [
         { name: "Home", path: "/" },
@@ -13,76 +22,95 @@ export default function Navbar() {
         { name: "Projects", path: "/projects" },
         { name: "Certificates", path: "/certifications" },
         { name: "Achievements", path: "/achievements" },
-        { name: "Contact", path: "/contact" }
+        { name: "Contact", path: "/contact" },
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6 md:py-6">
-            <div className="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex items-center justify-between">
-                <Link to="/" className="text-xl font-extrabold text-gradient">
-                    Shivang.
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+            scrolled ? "py-4 glass shadow-lg" : "py-6 bg-transparent"
+        }`}>
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                <Link to="/" className="text-2xl font-black tracking-tighter group transition-colors">
+                    <span className="text-primary group-hover:text-main transition-colors duration-300">Shivang</span>
+                    <span className="text-main group-hover:text-primary transition-colors duration-300">.</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <ul className="hidden lg:flex items-center space-x-6">
+                <ul className="hidden lg:flex items-center space-x-8">
                     {navItems.map((item) => (
-                        <li key={item.path}>
+                        <li key={item.name}>
                             <Link
                                 to={item.path}
-                                className={`text-sm font-medium transition-all duration-300 hover:text-primary ${location.pathname === item.path ? "text-primary scale-105" : "text-gray-400"
-                                    }`}
+                                className={`text-sm font-bold tracking-widest uppercase transition-all hover:text-primary ${
+                                    location.pathname === item.path ? "text-primary border-b-2 border-primary pb-1" : "text-main/70 hover:scale-110"
+                                }`}
                             >
                                 {item.name}
                             </Link>
                         </li>
                     ))}
-                    <li>
-                        <a
-                            href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2"
-                        >
-                            <span>Resume</span>
-                            <Download className="w-3 h-3" />
-                        </a>
-                    </li>
+                    
+                    {/* Theme Toggle Button */}
+                    <button 
+                        onClick={toggleTheme}
+                        className="p-2 rounded-xl glass hover:bg-primary/20 transition-all border border-white/10 hover:border-primary/50 text-yellow-400 group active:scale-95"
+                        title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                    >
+                        {theme === "dark" ? <Sun className="w-5 h-5 group-hover:rotate-45 transition-transform duration-500" /> : <Moon className="w-5 h-5 text-indigo-400 group-hover:-rotate-12 transition-transform duration-500" />}
+                    </button>
+
+                    <a 
+                        href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-primary hover:bg-white hover:text-black text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-primary/20 active:scale-95 flex items-center space-x-2"
+                    >
+                        <span>Resume</span>
+                        <Download className="w-4 h-4" />
+                    </a>
                 </ul>
 
-                {/* Mobile Menu Button */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="lg:hidden text-gray-400 hover:text-white transition-colors"
-                >
-                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                {/* Mobile Menu Toggle */}
+                <div className="lg:hidden flex items-center space-x-4">
+                    <button 
+                        onClick={toggleTheme}
+                        className="p-2 rounded-xl glass border border-white/10 text-yellow-400"
+                    >
+                        {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-indigo-400" />}
+                    </button>
+                    <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             {isOpen && (
-                <div className="lg:hidden mt-4 glass rounded-2xl p-6 animate-fade-in">
-                    <ul className="flex flex-col space-y-4">
+                <div className="lg:hidden absolute top-full left-0 w-full glass py-8 px-6 border-t border-white/5 animate-fade-in">
+                    <ul className="flex flex-col space-y-6">
                         {navItems.map((item) => (
-                            <li key={item.path}>
+                            <li key={item.name}>
                                 <Link
                                     to={item.path}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-sm font-medium transition-all duration-300 hover:text-primary ${location.pathname === item.path ? "text-primary" : "text-gray-400"
-                                        }`}
+                                    className={`text-lg font-bold tracking-widest uppercase block ${
+                                        location.pathname === item.path ? "text-primary" : "text-gray-300"
+                                    }`}
                                 >
                                     {item.name}
                                 </Link>
                             </li>
                         ))}
                         <li>
-                            <a
+                            <a 
                                 href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="bg-primary hover:bg-primary/80 text-white px-4 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center space-x-2 w-full"
+                                className="bg-primary inline-flex items-center space-x-2 text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest w-full justify-center shadow-xl shadow-primary/20"
+                                onClick={() => setIsOpen(false)}
                             >
-                                <span>Get Resume</span>
-                                <Download className="w-4 h-4" />
+                                <span>Download Resume</span>
+                                <Download className="w-5 h-5" />
                             </a>
                         </li>
                     </ul>

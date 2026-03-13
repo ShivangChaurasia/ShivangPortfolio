@@ -22,15 +22,15 @@ export default function Training() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-5xl mx-auto animate-fade-in">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Specialized <span className="text-gradient">Training</span></h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Specialized <span className="text-gradient">Training</span></h2>
+                <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     Focused bootcamps and intensive training programs that have shaped my technical foundation.
                 </p>
             </div>
 
             <div className="space-y-10">
                 {trainings.map((item, idx) => (
-                    <div key={idx} className="glass-card overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500">
+                    <div key={idx} className="glass-card overflow-hidden group border border-main/5 hover:border-primary/30 transition-all duration-500">
                         <div className="flex flex-col lg:flex-row">
                             {/* Content Side */}
                             <div className="p-8 md:p-12 lg:w-2/3 relative overflow-hidden">
@@ -41,8 +41,8 @@ export default function Training() {
                                 <div className="relative z-10">
                                     <div className="flex flex-wrap items-start justify-between gap-6 mb-8">
                                         <div>
-                                            <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                                            <div className="flex flex-wrap gap-6 text-gray-400 text-sm font-bold tracking-wide">
+                                            <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-primary transition-colors text-main">{item.title}</h3>
+                                            <div className="flex flex-wrap gap-6 text-muted text-sm font-bold tracking-wide">
                                                 <div className="flex items-center">
                                                     <MapPin className="w-4 h-4 mr-2 text-primary" />
                                                     {item.institution}
@@ -61,7 +61,7 @@ export default function Training() {
 
                                     <ul className="space-y-4 mb-8">
                                         {item.details.map((detail, dIdx) => (
-                                            <li key={dIdx} className="flex items-start text-gray-400 leading-relaxed font-light">
+                                            <li key={dIdx} className="flex items-start text-muted leading-relaxed font-light">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 mr-4 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.8)]"></div>
                                                 <span>{detail}</span>
                                             </li>
@@ -74,7 +74,7 @@ export default function Training() {
                                                 href={item.github}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95"
+                                                className="flex items-center space-x-2 bg-main/5 hover:bg-main/10 border border-main/10 px-5 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95 text-main"
                                             >
                                                 <Github className="w-4 h-4" />
                                                 <span>View Code</span>

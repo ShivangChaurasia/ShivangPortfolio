@@ -139,9 +139,8 @@ export default function BackgroundAnimation() {
         };
 
         const animate = () => {
-            // Background color
-            ctx.fillStyle = "#0f172a"; // slate 900
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Clear canvas instead of filling with hardcoded dark color
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
@@ -166,7 +165,7 @@ export default function BackgroundAnimation() {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed top-0 left-0 w-full h-full -z-50 pointer-events-none"
+            className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
         />
     );
 }
