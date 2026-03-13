@@ -35,52 +35,53 @@ export default function Projects() {
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        className="glass rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-white/5 bg-white/5 md:flex"
+                        className="glass rounded-[2rem] overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border border-white/5 bg-white/5 flex flex-col"
                     >
-                        <div className="relative h-64 md:h-auto md:w-2/5 overflow-hidden">
+                        <div className="relative h-64 overflow-hidden">
                             <img
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                             
                             {project.live !== "#" && (
-                                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center space-x-2 border border-white/10">
+                                <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full flex items-center space-x-2 border border-white/10">
                                     <span className="relative flex h-2 w-2">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                                     </span>
-                                    <span className="text-[10px] font-bold tracking-widest uppercase text-white">Live</span>
+                                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">Live</span>
                                 </div>
                             )}
+
+                            <div className="absolute bottom-6 right-6 flex space-x-3 translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
+                                <a href={project.github} target="_blank" rel="noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                {project.live !== "#" && (
+                                    <a href={project.live} target="_blank" rel="noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors">
+                                        <ArrowUpRight className="w-5 h-5" />
+                                    </a>
+                                )}
+                            </div>
                         </div>
 
-                        <div className="p-8 md:w-3/5 flex flex-col justify-between">
-                            <div>
-                                <div className="flex justify-between items-start mb-4">
-                                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
-                                    <div className="flex space-x-3">
-                                        <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                                            <Github className="w-5 h-5" />
-                                        </a>
-                                        {project.live !== "#" && (
-                                            <a href={project.live} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                                                <ArrowUpRight className="w-5 h-5" />
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-                                <p className="text-primary/80 font-semibold text-[11px] mb-4 tracking-wide uppercase italic">{project.subtitle}</p>
-                                <p className="text-gray-400 text-sm mb-6 leading-relaxed font-light line-clamp-3">
-                                    {project.description}
-                                </p>
+                        <div className="p-10 flex flex-col flex-grow">
+                            <div className="mb-6">
+                                <h3 className="text-2xl font-black mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+                                <p className="text-primary/80 font-bold text-xs tracking-[0.1em] uppercase">{project.subtitle}</p>
                             </div>
-                            <div className="flex flex-wrap gap-2">
+                            
+                            <p className="text-gray-400 text-sm mb-8 leading-relaxed font-light">
+                                {project.description}
+                            </p>
+
+                            <div className="mt-auto flex flex-wrap gap-2">
                                 {project.tags.map((tag, tIndex) => (
                                     <span
                                         key={tIndex}
-                                        className="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-400 group-hover:border-primary/20 transition-all"
+                                        className="text-[10px] uppercase tracking-widest font-black px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl text-gray-500 group-hover:text-primary group-hover:border-primary/20 transition-all"
                                     >
                                         {tag}
                                     </span>
@@ -88,6 +89,7 @@ export default function Projects() {
                             </div>
                         </div>
                     </div>
+
                 ))}
             </div>
         </div>

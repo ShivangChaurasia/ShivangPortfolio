@@ -1,46 +1,75 @@
-import { Layout, Server, Database, Cpu, Globe, Terminal, FileCode, Layers, Search, Workflow, Cog, Smartphone, Cloud, Boxes, Shapes, Code } from "lucide-react";
+import { useState } from "react";
+import { 
+    Layout, Server, Database, Cpu, Globe, Terminal, FileCode, Layers, 
+    Search, Workflow, Cog, Smartphone, Cloud, Boxes, Shapes, Code,
+    GitBranch, Github, Shield
+} from "lucide-react";
 
 export default function Skills() {
+    const [activeTab, setActiveTab] = useState("All");
+
     const allSkills = [
-        { name: "Java", icon: <FileCode className="w-10 h-10 text-orange-500" /> },
-        { name: "C", icon: <Terminal className="w-10 h-10 text-blue-500" /> },
-        { name: "JavaScript", icon: <FileCode className="w-10 h-10 text-yellow-400" /> },
-        { name: "Python", icon: <Terminal className="w-10 h-10 text-blue-400" /> },
-        { name: "React (Vite)", icon: <Layout className="w-10 h-10 text-cyan-400" /> },
-        { name: "Node.js", icon: <Server className="w-10 h-10 text-green-500" /> },
-        { name: "Express.js", icon: <Layers className="w-10 h-10 text-gray-400" /> },
-        { name: "HTML", icon: <Code className="w-10 h-10 text-orange-600" /> },
-        { name: "CSS", icon: <Shapes className="w-10 h-10 text-blue-500" /> },
-        { name: "Tailwind CSS", icon: <Shapes className="w-10 h-10 text-cyan-500" /> },
-        { name: "Bootstrap", icon: <Shapes className="w-10 h-10 text-purple-600" /> },
-        { name: "Java Swing", icon: <Layout className="w-10 h-10 text-red-500" /> },
-        { name: "MongoDB", icon: <Database className="w-10 h-10 text-green-600" /> },
-        { name: "MySQL", icon: <Database className="w-10 h-10 text-blue-600" /> },
-        { name: "Git", icon: <BranchIcon className="w-10 h-10 text-orange-600" /> },
-        { name: "GitHub", icon: <GitHubIcon className="w-10 h-10 text-white" /> },
-        { name: "Postman", icon: <Cloud className="w-10 h-10 text-orange-500" /> },
-        { name: "Firebase", icon: <Cloud className="w-10 h-10 text-yellow-500" /> },
-        { name: "Vercel", icon: <Globe className="w-10 h-10 text-white" /> },
-        { name: "DSA", icon: <Workflow className="w-10 h-10 text-primary" /> },
-        { name: "OOPs", icon: <Cog className="w-10 h-10 text-secondary" /> },
-        { name: "REST APIs", icon: <Globe className="w-10 h-10 text-green-400" /> },
-        { name: "Auth Systems", icon: <ShieldIcon className="w-10 h-10 text-red-400" /> }
+        { name: "Java", icon: <FileCode className="w-10 h-10 text-orange-500" />, category: "Backend" },
+        { name: "C", icon: <Terminal className="w-10 h-10 text-blue-500" />, category: "Backend" },
+        { name: "JavaScript", icon: <FileCode className="w-10 h-10 text-yellow-400" />, category: "Frontend" },
+        { name: "Python", icon: <Terminal className="w-10 h-10 text-blue-400" />, category: "Backend" },
+        { name: "React (Vite)", icon: <Layout className="w-10 h-10 text-cyan-400" />, category: "Frontend" },
+        { name: "Node.js", icon: <Server className="w-10 h-10 text-green-500" />, category: "Backend" },
+        { name: "Express.js", icon: <Layers className="w-10 h-10 text-gray-400" />, category: "Backend" },
+        { name: "HTML", icon: <Code className="w-10 h-10 text-orange-600" />, category: "Frontend" },
+        { name: "CSS", icon: <Shapes className="w-10 h-10 text-blue-500" />, category: "Frontend" },
+        { name: "Tailwind CSS", icon: <Shapes className="w-10 h-10 text-cyan-500" />, category: "Frontend" },
+        { name: "Bootstrap", icon: <Shapes className="w-10 h-10 text-purple-600" />, category: "Frontend" },
+        { name: "Java Swing", icon: <Layout className="w-10 h-10 text-red-500" />, category: "Tools & Core" },
+        { name: "MongoDB", icon: <Database className="w-10 h-10 text-green-600" />, category: "Backend" },
+        { name: "MySQL", icon: <Database className="w-10 h-10 text-blue-600" />, category: "Backend" },
+        { name: "Git", icon: <GitBranch className="w-10 h-10 text-orange-600" />, category: "Tools & Core" },
+        { name: "GitHub", icon: <Github className="w-10 h-10 text-white" />, category: "Tools & Core" },
+        { name: "Postman", icon: <Cloud className="w-10 h-10 text-orange-500" />, category: "Tools & Core" },
+        { name: "Firebase", icon: <Cloud className="w-10 h-10 text-yellow-500" />, category: "Tools & Core" },
+        { name: "Vercel", icon: <Globe className="w-10 h-10 text-white" />, category: "Tools & Core" },
+        { name: "DSA", icon: <Workflow className="w-10 h-10 text-primary" />, category: "Tools & Core" },
+        { name: "OOPs", icon: <Cog className="w-10 h-10 text-secondary" />, category: "Tools & Core" },
+        { name: "REST APIs", icon: <Globe className="w-10 h-10 text-green-400" />, category: "Backend" },
+        { name: "Auth Systems", icon: <Shield className="w-10 h-10 text-red-400" />, category: "Backend" }
     ];
+
+
+    const tabs = ["All", "Frontend", "Backend", "Tools & Core"];
+    const filteredSkills = activeTab === "All" ? allSkills : allSkills.filter(s => s.category === activeTab);
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in">
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Technical <span className="text-gradient">Arsenal</span></h2>
                 <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-                    My diverse collection of tools and technologies for building exceptional digital solutions.
+                    My diverse collection of tools and technologies categorized for better discoverability.
                 </p>
             </div>
 
+            {/* Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-20">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 ${
+                            activeTab === tab 
+                            ? "bg-primary text-white shadow-lg shadow-primary/30" 
+                            : "glass hover:bg-white/10 text-gray-400"
+                        } active:scale-95`}
+                    >
+                        {tab}
+                    </button>
+                ))}
+            </div>
+
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8">
-                {allSkills.map((skill, index) => (
+                {filteredSkills.map((skill, index) => (
                     <div
                         key={index}
-                        className="glass-card aspect-square flex flex-col items-center justify-center p-6 text-center group hover:border-primary/50"
+                        className="glass-card aspect-square flex flex-col items-center justify-center p-6 text-center group hover:border-primary/50 animate-slide-up"
+                        style={{ animationDelay: `${index * 50}ms` }}
                     >
                         <div className="mb-4 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
                             {skill.icon}
@@ -54,6 +83,7 @@ export default function Skills() {
         </div>
     );
 }
+
 
 function BranchIcon({ className }) {
     return (

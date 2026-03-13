@@ -26,43 +26,59 @@ export default function Training() {
 
             <div className="space-y-10">
                 {trainings.map((item, idx) => (
-                    <div key={idx} className="glass-card p-8 md:p-12 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <BookOpen className="w-24 h-24" />
-                        </div>
+                    <div key={idx} className="glass-card overflow-hidden group border border-white/5 hover:border-primary/30 transition-all duration-500">
+                        <div className="flex flex-col lg:flex-row">
+                            {/* Content Side */}
+                            <div className="p-8 md:p-12 lg:w-2/3 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                    <BookOpen className="w-32 h-32" />
+                                </div>
 
-                        <div className="relative z-10">
-                            <div className="flex flex-wrap items-start justify-between gap-6 mb-8">
-                                <div>
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                                    <div className="flex flex-wrap gap-4 text-gray-400 text-sm font-medium">
-                                        <div className="flex items-center">
-                                            <MapPin className="w-4 h-4 mr-2 text-primary" />
-                                            {item.institution}
+                                <div className="relative z-10">
+                                    <div className="flex flex-wrap items-start justify-between gap-6 mb-8">
+                                        <div>
+                                            <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
+                                            <div className="flex flex-wrap gap-6 text-gray-400 text-sm font-bold tracking-wide">
+                                                <div className="flex items-center">
+                                                    <MapPin className="w-4 h-4 mr-2 text-primary" />
+                                                    {item.institution}
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <Calendar className="w-4 h-4 mr-2 text-secondary" />
+                                                    {item.duration}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="flex items-center">
-                                            <Calendar className="w-4 h-4 mr-2 text-secondary" />
-                                            {item.duration}
+                                        <div className="bg-green-500/10 text-green-400 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-500/20 flex items-center shadow-lg shadow-green-500/10">
+                                            <CheckCircle2 className="w-4 h-4 mr-2" />
+                                            {item.status}
                                         </div>
                                     </div>
-                                </div>
-                                <div className="bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-xs font-bold border border-green-500/20 flex items-center">
-                                    <CheckCircle2 className="w-4 h-4 mr-2" />
-                                    {item.status}
+
+                                    <ul className="space-y-4 mb-8">
+                                        {item.details.map((detail, dIdx) => (
+                                            <li key={dIdx} className="flex items-start text-gray-400 leading-relaxed font-light">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 mr-4 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.8)]"></div>
+                                                <span>{detail}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
 
-                            <ul className="space-y-4">
-                                {item.details.map((detail, dIdx) => (
-                                    <li key={dIdx} className="flex items-start text-gray-300 leading-relaxed">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 mr-4 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.8)]"></div>
-                                        <span>{detail}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            {/* Image/Certificate Side */}
+                            <div className="lg:w-1/3 relative h-64 lg:h-auto overflow-hidden">
+                                <img 
+                                    src={item.image || "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800"} 
+                                    alt="Certificate"
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r lg:bg-gradient-to-l from-transparent via-transparent to-black/60 lg:to-black/80"></div>
+                            </div>
                         </div>
                     </div>
                 ))}
+
             </div>
         </div>
     );

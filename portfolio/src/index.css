@@ -11,7 +11,9 @@
   background-color: #030712;
   color: #f3f4f6;
   font-family: 'Outfit', sans-serif;
+  scrollbar-gutter: stable;
 }
+
 
 body {
   margin: 0;
@@ -34,8 +36,10 @@ body {
   }
 
   .text-gradient {
+    color: #818cf8;
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400;
   }
+
   
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
@@ -96,4 +100,26 @@ body {
 
 .flip-card-back {
   transform: rotateY(180deg);
-}
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.animate-slide-up {
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+}
+
+.typing-cursor::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}
+
+

@@ -8,6 +8,7 @@ import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import Training from "./pages/Training";
 import Achievements from "./pages/Achievements";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
     return (
@@ -24,6 +25,7 @@ export default function App() {
                     <Route path="/achievements" element={<Achievements />} />
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
+                <WhatsAppButton />
             </div>
         </Router>
     );
