@@ -102,7 +102,7 @@ export default function Contact() {
                             {status === "success" && (
                                 <div className="p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-2xl text-sm animate-fade-in flex items-center">
                                     <BadgeCheck className="w-5 h-5 mr-3" />
-                                    Message sent successfully! I'll get back to you.
+                                    Message sent successfully! Thank you for reaching out; I will review it and get back to you promptly.
                                 </div>
                             )}
                             {status === "error" && (
