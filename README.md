@@ -2,10 +2,11 @@
 
 # 🚀 Shivang's Developer Portfolio
 
-A modern, animated, and dark-theme first personal portfolio designed to showcase software development skills, open-source contributions, and competitive programming achievements.
+A modern, animated, and dark-theme first personal portfolio designed to showcase software development skills, full-stack projects, and competitive programming achievements.
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 </div>
@@ -14,56 +15,64 @@ A modern, animated, and dark-theme first personal portfolio designed to showcase
 
 ## ✨ Key Features
 
-- **Striking Modern Aesthetics**: Dark-theme first approach utilizing glassmorphism, dynamic gradients, and fluid CSS animations that create a highly premium feel.
-- **Live-Action Achievements Section**: A dedicated space highlighting platform metrics (GitHub, LeetCode, HackerRank, Codolio) complete with hovering cards, tooltips, and an infinite-scrolling badge marquee train.
-- **Fully Responsive**: Carefully tuned layout that works flawlessly across mobile, tablet, and desktop environments.
-- **Performance Optimized**: Powered by React & Vite for lightning-fast hot module replacement (HMR) and production builds.
+- **Interactive Typing Animations**: A premium initial load experience with a name-typing effect and smooth staggered reveals of profile details.
+- **Live-Action Achievements**: A dedicated space highlighting platform metrics (GitHub, LeetCode, Codolio) with hovering glassmorphism cards.
+- **Smart Contact Form**: Fully integrated with **Firebase Firestore** for database storage and **EmailJS** for instant, free email notifications.
+- **Modern UI/UX**: Dark-theme first approach utilizing glassmorphism, dynamic gradients, and fluid Framer Motion animations.
+- **Fully Responsive**: Optimized for flawless performance on mobile, tablet, and desktop.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [React.js](https://reactjs.org/) (via [Vite](https://vitejs.dev/))
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS for Custom Keyframes
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Custom Keyframes
+- **Backend/Database**: [Firebase](https://firebase.google.com/) (Firestore)
+- **Emails**: [EmailJS](https://www.emailjs.com/) (Free client-side notifications)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [Lottie](https://lottiefiles.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Typography**: Complete integration with the modern *Outfit* font family.
 
 ## 🚀 Getting Started
 
-To run this project locally, simply follow these steps:
-
 ### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) and npm installed on your machine.
+- [Node.js](https://nodejs.org/) (v18+)
+- Firebase Account
+- EmailJS Account
 
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ShivangChaurasia/ShivangPortfolio.git
-   ```
-
-2. **Navigate to the portfolio directory:**
-   ```bash
-   cd portfolio
-   ```
-
-3. **Install the dependencies:**
-   ```bash
-   npm install
-   ```
-
-4. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   *The app should now be running on `http://localhost:5173` (or another port specified by Vite).*
-
-## 🏗️ Build for Production
-
-To create an optimized production build, run:
-
+### 1. Clone & Install
 ```bash
-npm run build
+git clone https://github.com/ShivangChaurasia/ShivangPortfolio.git
+cd portfolio
+npm install
 ```
-This will generate a `dist` folder containing all the static assets that can be easily deployed to services like Vercel, Netlify, or GitHub Pages.
+
+### 2. Environment Variables
+Create a `.env` file in the `portfolio` directory and add your credentials:
+```env
+# Firebase Configuration
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+# EmailJS Configuration
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+### 3. Run Locally
+```bash
+npm run dev
+```
+
+## 🏗️ Deployment (Vercel)
+
+To deploy this portfolio on Vercel:
+1. Connect your repository to Vercel.
+2. Set the **Root Directory** to `portfolio`.
+3. Add all variables from your `.env` to the Vercel **Environment Variables** settings.
+4. Deploy!
 
 ---
 
