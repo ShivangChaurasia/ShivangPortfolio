@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import profileImg from "../assets/profile_avatar.png";
 import { ArrowRight, Code, BookOpen, Briefcase, Award, Trophy, Mail, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import CodolioCards from "../components/CodolioCards";
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -78,6 +79,11 @@ export default function Home() {
                             <Mail className="w-5 h-5 ml-1" />
                         </Link>
                     </div>
+                </div>
+
+                {/* Codolio Cards Section */}
+                <div className={`w-full mb-24 transition-all duration-1000 delay-150 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                    <CodolioCards />
                 </div>
 
                 {/* Section Previews */}
