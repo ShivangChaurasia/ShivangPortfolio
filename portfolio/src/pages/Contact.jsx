@@ -34,9 +34,9 @@ export default function Contact() {
 
     const socials = [
         { icon: <Github />, link: "https://github.com/ShivangChaurasia" },
-        { icon: <Linkedin />, link: "https://www.linkedin.com/in/shivang-chaurasia" },
-        { icon: <Twitter />, link: "#" }
+        { icon: <Linkedin />, link: "https://www.linkedin.com/in/shivang-chaurasia" }
     ];
+
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in relative">
