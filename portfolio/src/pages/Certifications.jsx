@@ -21,6 +21,7 @@ import cssHackerRankImg from "../assets/certs/CSS-HackerRank.png";
 
 export default function Certifications() {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [activeTab, setActiveTab] = useState("All");
 
     useEffect(() => {
         setIsLoaded(true);
@@ -42,6 +43,7 @@ export default function Certifications() {
             issuer: "NASSCOM Foundation",
             platform: "thingQbator",
             date: "N/A",
+            category: "Development",
             link: "https://drive.google.com/file/d/1w3wjEuguSuD2n39TFJOs_whI6LRxyRGb/view?usp=sharing",
             thumbnail: mernThinqubatorImg,
             details: "Comprehensive MERN stack bootcamp focusing on real-world web application architecture."
@@ -51,6 +53,7 @@ export default function Certifications() {
             issuer: "IIIT Bangalore",
             platform: "NPTEL / SWAYAM",
             date: "Jan–Apr 2025",
+            category: "Core",
             id: "Roll No. NPTEL25CS31S1247500172",
             link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
             thumbnail: cryptographyImg,
@@ -61,6 +64,7 @@ export default function Certifications() {
             issuer: "Google",
             platform: "Coursera",
             date: "7 Sept 2024",
+            category: "Core",
             link: "https://coursera.org/verify/57R6R13H4JIR",
             thumbnail: bitsBytesImg,
             details: "Comprehensive networking fundamentals: TCP/IP, DNS, DHCP, and network troubleshooting."
@@ -70,6 +74,7 @@ export default function Certifications() {
             issuer: "HackerRank",
             platform: "HackerRank",
             date: "16 Feb 2026",
+            category: "Development",
             id: "BB02C79AEEEB",
             link: "https://www.hackerrank.com/certificates/bb02c79aeeeb",
             thumbnail: reactHackerRankImg,
@@ -80,6 +85,7 @@ export default function Certifications() {
             issuer: "HackerRank",
             platform: "HackerRank",
             date: "06 Feb 2026",
+            category: "Development",
             id: "E0A56379D18A",
             link: "https://www.hackerrank.com/certificates/e0a56379d18a",
             thumbnail: jsHackerRankImg,
@@ -90,6 +96,7 @@ export default function Certifications() {
             issuer: "Udemy",
             platform: "Udemy",
             date: "30 Aug 2025",
+            category: "Development",
             id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
             link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
             thumbnail: generativeAiImg,
@@ -100,6 +107,7 @@ export default function Certifications() {
             issuer: "Infosys",
             platform: "Infosys Springboard",
             date: "29 Aug 2025",
+            category: "Development",
             link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
             thumbnail: buildGenAIImg,
             details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
@@ -109,6 +117,7 @@ export default function Certifications() {
             issuer: "Infosys",
             platform: "Infosys Springboard",
             date: "15 Aug 2025",
+            category: "Development",
             link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
             thumbnail: chatGptImg,
             details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
@@ -118,6 +127,7 @@ export default function Certifications() {
             issuer: "HackerRank",
             platform: "HackerRank",
             date: "15 Oct 2025",
+            category: "Development",
             id: "CD3F25DD346B",
             link: "https://www.hackerrank.com/certificates/cd3f25dd346b",
             thumbnail: cssHackerRankImg,
@@ -128,6 +138,7 @@ export default function Certifications() {
             issuer: "freeCodeCamp",
             platform: "freeCodeCamp",
             date: "28 Oct 2023",
+            category: "Development",
             link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
             thumbnail: freeCodeCampImg,
             details: "Industry-standard certification for mastered front-end responsive design techniques."
@@ -137,6 +148,7 @@ export default function Certifications() {
             issuer: "NASSCOM Foundation (Cisco CSR Program)",
             platform: "thingQbator",
             date: "N/A",
+            category: "Development",
             link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
             thumbnail: htmlCssThinqubatorImg,
             details: "Building responsive layouts and semantic web structures with modern CSS."
@@ -146,6 +158,7 @@ export default function Certifications() {
             issuer: "Infosys",
             platform: "Infosys Springboard",
             date: "28 Aug 2025",
+            category: "Core",
             link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
             thumbnail: computationalTheoryImg,
             details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
@@ -155,6 +168,7 @@ export default function Certifications() {
             issuer: "IBM",
             platform: "Coursera",
             date: "10 Sept 2024",
+            category: "Core",
             link: "https://coursera.org/verify/XIDKIW0JRWQ6",
             thumbnail: hardwareOSImg,
             details: "Core hardware architecture, OS management, and system optimization principles."
@@ -164,6 +178,7 @@ export default function Certifications() {
             issuer: "University of Colorado",
             platform: "Coursera",
             date: "4 Nov 2024",
+            category: "Core",
             link: "https://coursera.org/verify/4D2Y6JC6OHQ9",
             thumbnail: p2pImg,
             details: "Advanced study of decentralised network protocols and LAN architecture."
@@ -173,6 +188,7 @@ export default function Certifications() {
             issuer: "University of Colorado",
             platform: "Coursera",
             date: "5 Nov 2024",
+            category: "Core",
             link: "https://coursera.org/verify/31IO3GE3IZO",
             thumbnail: networkCommsImg,
             details: "Layered network models, data transmission, and communication protocols."
@@ -182,6 +198,7 @@ export default function Certifications() {
             issuer: "Centre for Professional Enhancement (LPU)",
             platform: "LPU",
             date: "8 Dec 2023",
+            category: "Extra Co-curr.",
             id: "298068",
             link: "https://drive.google.com/file/d/1hcOa9R5fyg1YgZNx9p40Hv3vGBFqJlAQ/view?usp=sharing",
             thumbnail: communicationSkillsImg,
@@ -195,6 +212,9 @@ export default function Certifications() {
         "9e30672f-13dd-439c-b491-6354746f3881",
         "35298063-104b-49b8-b6dd-cbf785965d01"
     ];
+
+    const tabs = ["All", "Core", "Development", "Extra Co-curr."];
+    const filteredCerts = activeTab === "All" ? certifications : certifications.filter(c => c.category === activeTab);
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-main">
@@ -226,6 +246,23 @@ export default function Certifications() {
                 </div>
             </div>
 
+            {/* Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 ${
+                            activeTab === tab 
+                            ? "bg-primary text-white shadow-lg shadow-primary/30" 
+                            : "glass hover:bg-main/10 text-muted"
+                        } active:scale-95`}
+                    >
+                        {tab}
+                    </button>
+                ))}
+            </div>
+
             {/* Flip Cards Section */}
             <div>
                 <div className="flex items-center space-x-6 mb-12">
@@ -234,8 +271,12 @@ export default function Certifications() {
                     <div className="h-px flex-grow bg-main/10"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-                    {certifications.map((cert, index) => (
-                        <div key={index} className="flip-card h-[450px] cursor-pointer group">
+                    {filteredCerts.map((cert, index) => (
+                        <div 
+                            key={`${activeTab}-${index}`} 
+                            className="flip-card h-[450px] cursor-pointer group animate-slide-up"
+                            style={{ animationDelay: `${index * 100}ms` }}
+                        >
                             <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
                                 {/* Front Side */}
                                 <div className="flip-card-front glass relative overflow-hidden flex flex-col border-main/10 group-hover:border-primary/30 transition-all duration-500">

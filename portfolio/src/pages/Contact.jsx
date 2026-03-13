@@ -42,7 +42,7 @@ export default function Contact() {
 
     const socials = [
         { icon: <Github />, link: "https://github.com/ShivangChaurasia" },
-        { icon: <Linkedin />, link: "https://www.linkedin.com/in/shivang-chaurasia" }
+        { icon: <Linkedin />, link: "https://www.linkedin.com/in/shivang-chaurasia-754232297/" }
     ];
 
     return (
