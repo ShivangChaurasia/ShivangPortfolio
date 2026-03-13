@@ -32,7 +32,7 @@ export default function App() {
 
     return (
         <Router>
-            <BackgroundAnimation />
+            <BackgroundAnimation theme={theme} />
             <div className="relative z-10 transition-colors duration-300">
                 <Navbar theme={theme} toggleTheme={toggleTheme} />
                 <Routes>

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
-export default function BackgroundAnimation() {
+export default function BackgroundAnimation({ theme }) {
     const canvasRef = useRef(null);
+    const particlesRef = useRef([]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -11,7 +12,6 @@ export default function BackgroundAnimation() {
         if (!ctx) return;
 
         let animationFrameId;
-        let particles = [];
         // Increase population for a much denser particle field
         const particleCount = 600;
         
@@ -21,17 +21,34 @@ export default function BackgroundAnimation() {
         let isMoving = false;
         let moveTimeout;
 
+        const getColorsForTheme = (t) => {
+            if (t === "light") {
+                return [
+                    "71, 85, 105", // slate 600
+                    "180, 83, 9",  // amber 700
+                    "15, 118, 110", // teal 700
+                    "190, 18, 60",  // rose 700
+                    "67, 56, 202"   // indigo 700
+                ];
+            }
+            return [
+                "255, 255, 255", // white
+                "251, 191, 36",  // gold
+                "217, 119, 6",   // deep amber
+                "20, 184, 166",  // ethnic teal
+                "225, 29, 72"    // ruby
+            ];
+        };
+
         class Particle {
             constructor() {
                 this.reset();
             }
 
             reset() {
-                // Distribute evenly across the ENTIRE canvas
                 this.x = Math.random() * (canvas.width || window.innerWidth);
                 this.y = Math.random() * (canvas.height || window.innerHeight);
 
-                // Small drift velocity to keep the background alive
                 this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 
@@ -44,55 +61,40 @@ export default function BackgroundAnimation() {
                     this.size = Math.random() * 1 + 1; 
                 }
 
-                this.color = this.getRandomColor();
-                // Higher opacity so particles are clearly visible
+                this.updateColor();
                 this.opacity = Math.random() * 0.5 + 0.4; 
             }
 
-            getRandomColor() {
-                const colors = [
-                    "255, 255, 255", // white
-                    "251, 191, 36",  // gold
-                    "217, 119, 6",   // deep amber
-                    "20, 184, 166",  // ethnic teal
-                    "225, 29, 72"    // ruby
-                ];
-                return colors[Math.floor(Math.random() * colors.length)];
+            updateColor() {
+                const colors = getColorsForTheme(theme);
+                this.color = colors[Math.floor(Math.random() * colors.length)];
             }
 
             update() {
-                // Keep particles slowly floating around when mouse is moving
                 if (isMoving) {
                     this.x += this.vx;
                     this.y += this.vy;
                 }
 
-                // Bounce off edges smoothly
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-                // --- CURSOR INTERACTION ---
                 let dx = this.x - mouseX;
                 let dy = this.y - mouseY;
                 let dist = Math.sqrt(dx * dx + dy * dy);
 
-                // Visibility Logic: Invisible outside of ~5cm (approx 250px radius)
                 this.currentOpacity = 0;
                 if (dist < 250) {
-                    // Fade in proportionally as they get within the 250px boundary
                     let fade = Math.max(0, Math.min(1, (250 - dist) / 50)); 
                     this.currentOpacity = this.opacity * fade;
                 }
 
-                // If cursor is actively moving, particles within 150px try to run away
                 if (isMoving && dist < 150) {
-                    // Force is inverse to distance
                     let force = (150 - dist) / 150;
-                    this.x += (dx / dist) * force * 10; // Rapidly push outward
+                    this.x += (dx / dist) * force * 10;
                     this.y += (dy / dist) * force * 10;
                 }
 
-                // Strict 75px (~2cm) Exclusion Zone: Prevents any particle from being "behind" or near cursor
                 if (dist > 0 && dist < 75) {
                     let pushRatio = 75 / dist;
                     this.x = mouseX + dx * pushRatio;
@@ -101,7 +103,6 @@ export default function BackgroundAnimation() {
             }
 
             draw() {
-                // Do not render if completely invisible
                 if (!this.currentOpacity || this.currentOpacity <= 0) return;
 
                 ctx.fillStyle = `rgba(${this.color}, ${this.currentOpacity})`;
@@ -111,14 +112,14 @@ export default function BackgroundAnimation() {
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.closePath();
                 ctx.fill();
-                ctx.shadowBlur = 0; // reset for performance
+                ctx.shadowBlur = 0;
             }
         }
 
         const init = () => {
-            particles = [];
+            particlesRef.current = [];
             for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
+                particlesRef.current.push(new Particle());
             }
         };
 
@@ -134,17 +135,16 @@ export default function BackgroundAnimation() {
             isMoving = true;
             clearTimeout(moveTimeout);
             moveTimeout = setTimeout(() => {
-                isMoving = false; // "Paused" state when mouse stops
+                isMoving = false;
             }, 50);
         };
 
         const animate = () => {
-            // Clear canvas instead of filling with hardcoded dark color
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+            for (let i = 0; i < particlesRef.current.length; i++) {
+                particlesRef.current[i].update();
+                particlesRef.current[i].draw();
             }
             animationFrameId = requestAnimationFrame(animate);
         };
@@ -160,12 +160,12 @@ export default function BackgroundAnimation() {
             clearTimeout(moveTimeout);
             cancelAnimationFrame(animationFrameId);
         };
-    }, []);
+    }, [theme]); // Re-initialize or update on theme change
 
     return (
         <canvas
             ref={canvasRef}
-            className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
+            className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
         />
     );
 }
