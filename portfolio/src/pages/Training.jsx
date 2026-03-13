@@ -1,4 +1,5 @@
-import { BookOpen, Calendar, CheckCircle2, MapPin } from "lucide-react";
+import { BookOpen, Calendar, CheckCircle2, MapPin, Github, ExternalLink } from "lucide-react";
+import placementAceImg from "../assets/Training/Placement_Ace.png";
 
 export default function Training() {
     const trainings = [
@@ -7,6 +8,9 @@ export default function Training() {
             institution: "Lovely Professional University",
             duration: "Jun 2025 – Jul 2025",
             status: "Completed",
+            github: "https://github.com/ShivangChaurasia/ContactSearchGUI",
+            certificate: "https://drive.google.com/file/d/1oz5oMQ5Pt5Rpg_aOrqBtgYd4fKw0KOVL/view?usp=sharing",
+            image: placementAceImg,
             details: [
                 "Hands-on experience in Java programming and Data Structures.",
                 "Developed a Contact Management Application using Java Swing with a Trie-based search system.",
@@ -63,6 +67,31 @@ export default function Training() {
                                             </li>
                                         ))}
                                     </ul>
+
+                                    <div className="flex flex-wrap gap-4">
+                                        {item.github && (
+                                            <a 
+                                                href={item.github}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95"
+                                            >
+                                                <Github className="w-4 h-4" />
+                                                <span>View Code</span>
+                                            </a>
+                                        )}
+                                        {item.certificate && (
+                                            <a 
+                                                href={item.certificate}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="flex items-center space-x-2 bg-primary hover:bg-primary/80 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all active:scale-95 shadow-lg shadow-primary/20"
+                                            >
+                                                <ExternalLink className="w-4 h-4" />
+                                                <span>View Certificate</span>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 

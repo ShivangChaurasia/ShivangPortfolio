@@ -38,8 +38,9 @@ export default function Navbar() {
                     ))}
                     <li>
                         <a
-                            href="/resume.pdf"
-                            download
+                            href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
+                            target="_blank"
+                            rel="noreferrer"
                             className="bg-primary hover:bg-primary/80 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-2"
                         >
                             <span>Resume</span>
@@ -75,8 +76,9 @@ export default function Navbar() {
                         ))}
                         <li>
                             <a
-                                href="/resume.pdf"
-                                download
+                                href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
+                                target="_blank"
+                                rel="noreferrer"
                                 className="bg-primary hover:bg-primary/80 text-white px-4 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center space-x-2 w-full"
                             >
                                 <span>Get Resume</span>

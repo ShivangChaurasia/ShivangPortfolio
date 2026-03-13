@@ -1,47 +1,166 @@
-import { Award, Calendar, ExternalLink, BadgeCheck, ShieldCheck, Database, Code2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Award, Calendar, ExternalLink, ShieldCheck, Trophy } from "lucide-react";
+
+// Image Imports
+import bitsBytesImg from "../assets/certs/Bits&Bytes.png";
+import hardwareOSImg from "../assets/certs/Hardware&OS.png";
+import p2pImg from "../assets/certs/P2P.png";
+import networkCommsImg from "../assets/certs/NetworkComms.png";
+import buildGenAIImg from "../assets/certs/Build_Generative.png";
+import chatGptImg from "../assets/certs/ChatGpt-4.png";
+import computationalTheoryImg from "../assets/certs/Computational_Theory.png";
+import generativeAiImg from "../assets/certs/GenerativeAi.png";
+import communicationSkillsImg from "../assets/certs/CommunicationSkills.png";
+import htmlCssThinqubatorImg from "../assets/certs/HTML&CSS_Thinqubators.png";
+import mernThinqubatorImg from "../assets/certs/MERN_Thinqubator.png";
+import freeCodeCampImg from "../assets/certs/HTMLFreeCodeCamp.png";
+import cryptographyImg from "../assets/certs/NPTEL_Cryptography.png";
 
 export default function Certifications() {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        setIsLoaded(true);
+        // Load Credly Script
+        const script = document.createElement("script");
+        script.src = "//cdn.credly.com/assets/utilities/embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            const scriptTag = document.querySelector('script[src="//cdn.credly.com/assets/utilities/embed.js"]');
+            if (scriptTag) document.body.removeChild(scriptTag);
+        };
+    }, []);
+
     const certifications = [
         {
-            title: "Full Stack Development (MERN)",
-            issuer: "Nasscom & ThinkQubator",
-            date: "Jan 2026",
-            link: "#",
-            thumbnail: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
-            details: "Intensive training in MongoDB, Express.js, React, and Node.js with scalable project implementation."
+            title: "The Bits and Bytes of Computer Networking",
+            issuer: "Google",
+            platform: "Coursera",
+            date: "7 Sept 2024",
+            link: "https://coursera.org/verify/57R6R13H4JIR",
+            thumbnail: bitsBytesImg,
+            details: "Comprehensive networking fundamentals: TCP/IP, DNS, DHCP, and network troubleshooting."
         },
         {
-            title: "Computational Theory",
-            issuer: "Infosys Springboard",
-            date: "Aug 2025",
-            link: "#",
-            thumbnail: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800",
-            details: "Mastery of Language Principle & Finite Automata Theory."
+            title: "Introduction to Hardware and Operating Systems",
+            issuer: "IBM",
+            platform: "Coursera",
+            date: "10 Sept 2024",
+            link: "https://coursera.org/verify/XIDKIW0JRWQ6",
+            thumbnail: hardwareOSImg,
+            details: "Core hardware architecture, OS management, and system optimization principles."
         },
         {
-            title: "Generative AI Solutions",
-            issuer: "Infosys Springboard",
-            date: "Aug 2025",
-            link: "#",
-            thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-            details: "Building Generative AI applications using LLM frameworks and no-code tools."
+            title: "Peer-to-Peer Protocols and Local Area Networks",
+            issuer: "University of Colorado",
+            platform: "Coursera",
+            date: "4 Nov 2024",
+            link: "https://coursera.org/verify/4D2Y6JC6OHQ9",
+            thumbnail: p2pImg,
+            details: "Advanced study of decentralised network protocols and LAN architecture."
         },
         {
-            title: "Java Programming / DSA",
-            issuer: "SDC / LPU",
-            date: "Jul 2025",
-            link: "#",
-            thumbnail: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&q=80&w=800",
-            details: "Bootcamp covering advanced Java topics and competitive programming on TopCoder."
+            title: "Fundamentals of Network Communication",
+            issuer: "University of Colorado",
+            platform: "Coursera",
+            date: "5 Nov 2024",
+            link: "https://coursera.org/verify/31IO3GE3IZO",
+            thumbnail: networkCommsImg,
+            details: "Layered network models, data transmission, and communication protocols."
         },
         {
-            title: "Database Management System",
-            issuer: "NPTEL (IIT Madras)",
-            date: "May 2025",
-            link: "#",
-            thumbnail: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
-            details: "Academic certification in DBMS principles, SQL, and database normalization."
+            title: "Build Generative AI Apps and Solutions with No-Code Tools",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "29 Aug 2025",
+            link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
+            thumbnail: buildGenAIImg,
+            details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
+        },
+        {
+            title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "15 Aug 2025",
+            link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
+            thumbnail: chatGptImg,
+            details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
+        },
+        {
+            title: "Computational Theory: Language Principle & Finite Automata Theory",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "28 Aug 2025",
+            link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
+            thumbnail: computationalTheoryImg,
+            details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
+        },
+        {
+            title: "Master Generative AI & Generative AI Tools (ChatGPT & More)",
+            issuer: "Udemy",
+            platform: "Udemy",
+            date: "30 Aug 2025",
+            id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
+            link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
+            thumbnail: generativeAiImg,
+            details: "End-to-end training in generative tools for productivity and application enhancement."
+        },
+        {
+            title: "Hone Your Communication Skills for Successful Career",
+            issuer: "Centre for Professional Enhancement (LPU)",
+            platform: "LPU",
+            date: "8 Dec 2023",
+            id: "298068",
+            link: "https://drive.google.com/file/d/1hcOa9R5fyg1YgZNx9p40Hv3vGBFqJlAQ/view?usp=sharing",
+            thumbnail: communicationSkillsImg,
+            details: "Professional communication, soft skills, and career-oriented leadership training."
+        },
+        {
+            title: "HTML & CSS",
+            issuer: "NASSCOM Foundation (Cisco CSR Program)",
+            platform: "thingQbator",
+            date: "N/A",
+            link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
+            thumbnail: htmlCssThinqubatorImg,
+            details: "Building responsive layouts and semantic web structures with modern CSS."
+        },
+        {
+            title: "Full Stack Development with MERN",
+            issuer: "NASSCOM Foundation",
+            platform: "thingQbator",
+            date: "N/A",
+            link: "https://drive.google.com/file/d/1w3wjEuguSuD2n39TFJOs_whI6LRxyRGb/view?usp=sharing",
+            thumbnail: mernThinqubatorImg,
+            details: "Comprehensive MERN stack bootcamp focusing on real-world web application architecture."
+        },
+        {
+            title: "Responsive Web Design Developer Certification",
+            issuer: "freeCodeCamp",
+            platform: "freeCodeCamp",
+            date: "28 Oct 2023",
+            link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
+            thumbnail: freeCodeCampImg,
+            details: "Industry-standard certification for mastered front-end responsive design techniques."
+        },
+        {
+            title: "Foundations of Cryptography",
+            issuer: "IIIT Bangalore",
+            platform: "NPTEL / SWAYAM",
+            date: "Jan–Apr 2025",
+            id: "Roll No. NPTEL25CS31S1247500172",
+            link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
+            thumbnail: cryptographyImg,
+            details: "Academic dive into cryptographic algorithms, security protocols, and encryption."
         }
+    ];
+
+    const badges = [
+        "d1217157-4dd0-403e-8170-ac7c1466311a",
+        "7a6d3a9b-b7f2-4a8e-9cc5-8f9267faf3bb",
+        "9e30672f-13dd-439c-b491-6354746f3881",
+        "35298063-104b-49b8-b6dd-cbf785965d01"
     ];
 
     return (
@@ -49,60 +168,105 @@ export default function Certifications() {
             <div className="text-center mb-20">
                 <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Professional <span className="text-gradient">Credentials</span></h2>
                 <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-                    Validated expertise through industry-recognized certifications and intensive training programs.
+                    Industry-recognized certifications representing specialized expertise in Networking, AI, and Full-Stack development.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-                {certifications.map((cert, index) => (
-                    <div key={index} className="flip-card h-[400px] cursor-pointer group">
-                        <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
-                            {/* Front Side */}
-                            <div className="flip-card-front glass relative overflow-hidden flex flex-col items-center justify-center border-white/5 group-hover:border-primary/30 transition-all duration-500">
-                                <div className="absolute inset-0">
-                                    <img 
-                                        src={cert.thumbnail} 
-                                        alt={cert.title}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
-                                </div>
-                                <div className="relative z-10 p-8 text-center flex flex-col items-center">
-                                    <div className="w-14 h-14 mb-6 flex items-center justify-center bg-primary/20 backdrop-blur-md rounded-2xl border border-primary/30 shadow-xl">
-                                        <Award className="w-7 h-7 text-primary" />
-                                    </div>
-                                    <h3 className="text-xl font-bold leading-tight mb-3 group-hover:text-primary transition-colors">{cert.title}</h3>
-                                    <p className="text-gray-400 text-sm font-bold tracking-widest uppercase">{cert.issuer}</p>
-                                </div>
-                            </div>
+            {/* Credly Badges Section */}
+            <div className="mb-20">
+                <div className="flex items-center space-x-6 mb-12">
+                    <ShieldCheck className="w-8 h-8 text-primary" />
+                    <h3 className="text-2xl font-black uppercase tracking-widest">Verified <span className="text-gradient">Badges</span></h3>
+                    <div className="h-px flex-grow bg-white/5"></div>
+                </div>
+                <div className="flex flex-wrap justify-center gap-10">
+                    {badges.map((id) => (
+                        <div 
+                            key={id} 
+                            className="bg-white/5 p-4 rounded-3xl border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 shrink-0"
+                            data-iframe-width="150" 
+                            data-iframe-height="270" 
+                            data-share-badge-id={id} 
+                            data-share-badge-host="https://www.credly.com"
+                        ></div>
+                    ))}
+                </div>
+            </div>
 
-                            {/* Back Side */}
-                            <div className="flip-card-back glass absolute inset-0 p-10 flex flex-col justify-between border-primary/20 bg-primary/5">
-                                <div>
-                                    <div className="flex items-center text-primary mb-6 font-black text-xs tracking-[0.2em] uppercase">
-                                        <Calendar className="w-4 h-4 mr-3" />
-                                        {cert.date}
+            {/* Flip Cards Section */}
+            <div>
+                <div className="flex items-center space-x-6 mb-12">
+                    <Trophy className="w-8 h-8 text-amber-500" />
+                    <h3 className="text-2xl font-black uppercase tracking-widest">Academic <span className="text-gradient">& Professional</span></h3>
+                    <div className="h-px flex-grow bg-white/5"></div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+                    {certifications.map((cert, index) => (
+                        <div key={index} className="flip-card h-[450px] cursor-pointer group">
+                            <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
+                                {/* Front Side */}
+                                <div className="flip-card-front glass relative overflow-hidden flex flex-col border-white/5 group-hover:border-primary/30 transition-all duration-500">
+                                    <div className="h-3/5 relative overflow-hidden">
+                                        <img 
+                                            src={cert.thumbnail} 
+                                            alt={cert.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                        <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-primary/20 backdrop-blur-md rounded-xl border border-primary/30 shadow-xl group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                                            <Award className="w-5 h-5" />
+                                        </div>
                                     </div>
-                                    <h4 className="text-lg font-bold mb-4 text-white line-clamp-2">{cert.title}</h4>
-                                    <p className="text-gray-400 text-sm leading-relaxed font-light italic">
-                                       "{cert.details}"
-                                    </p>
+                                    <div className="h-2/5 p-6 flex flex-col justify-center bg-black/40">
+                                        <h3 className="text-lg font-bold leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">{cert.title}</h3>
+                                        <p className="text-gray-400 text-xs font-light italic line-clamp-2">"{cert.details}"</p>
+                                    </div>
                                 </div>
-                                <a
-                                    href={cert.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="w-full py-4 bg-primary text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-primary/80 transition-all flex items-center justify-center space-x-2 shadow-xl shadow-primary/20"
-                                >
-                                    <span>Verify Document</span>
-                                    <ExternalLink className="w-4 h-4" />
-                                </a>
+
+                                {/* Back Side */}
+                                <div className="flip-card-back glass absolute inset-0 p-8 flex flex-col justify-between border-primary/20 bg-primary/5">
+                                    <div className="space-y-4">
+                                        <h4 className="text-base font-black text-white leading-tight uppercase tracking-wider mb-4 border-b border-white/10 pb-4">{cert.title}</h4>
+                                        
+                                        <div className="space-y-3">
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] text-primary font-black uppercase tracking-widest">Platform</span>
+                                                <span className="text-sm font-bold text-gray-200">{cert.platform}</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] text-primary font-black uppercase tracking-widest">Issuing Organization</span>
+                                                <span className="text-sm font-bold text-gray-200">{cert.issuer}</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] text-primary font-black uppercase tracking-widest">Date of Issue</span>
+                                                <span className="text-sm font-bold text-gray-200">{cert.date}</span>
+                                            </div>
+                                            {cert.id && (
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] text-primary font-black uppercase tracking-widest">Certificate ID / S.No.</span>
+                                                    <span className="text-sm font-bold text-gray-200 break-all">{cert.id}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                    
+                                    <a
+                                        href={cert.link}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="w-full py-4 bg-primary text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center space-x-2 shadow-xl shadow-primary/20"
+                                    >
+                                        <span>Verify Document</span>
+                                        <ExternalLink className="w-3 h-3" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
+
 

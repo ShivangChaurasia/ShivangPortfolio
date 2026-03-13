@@ -65,8 +65,9 @@ export default function Home() {
                         </Link>
                         
                         <a
-                            href="/resume.pdf"
-                            download
+                            href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
+                            target="_blank"
+                            rel="noreferrer"
                             className="glass border border-slate-700 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
                         >
                             <span>Download Resume</span>

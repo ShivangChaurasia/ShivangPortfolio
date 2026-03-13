@@ -7,3 +7,108 @@ Nav Tabs: Home, Skills, Training, Projects, Certificates, Achievements, Resume B
     Certificates: Display of certificates with images, course names, and issuing organizations with a rotating/fliping animagtion with details at the back of card.
     Achievements: List of achievements with descriptions and dates and it should be clickable that takes me to the relatable link of the achievement with a animated thumbnail.
     Contact: A contact form with fields for name, email, subject, and message, along with a submit button. Additionally, include technical platform icons like linkedin or github that link to your profiles and a floating whatsapp icon whcih takes the viewer to whatsapp and gives access to my no. on whatsapp.
+
+
+
+Certificates:
+
+4. Certificate Name: The Bits and Bytes of Computer Networking
+Platform: Coursera
+Issuing Organization: Google
+Date of Issue: 7 September 2024
+Link: https://coursera.org/verify/57R6R13H4JIR
+
+5. Certificate Name: Introduction to Hardware and Operating Systems
+Platform: Coursera
+Issuing Organization: IBM
+Date of Issue: 10 September 2024
+Link: https://coursera.org/verify/XIDKIW0JRWQ6
+
+6. Certificate Name: Peer-to-Peer Protocols and Local Area Networks
+Platform: Coursera
+Issuing Organization: University of Coloradoe
+Date of Issue: 4 November 2024
+Link: https://coursera.org/verify/4D2Y6JC6OHQ9
+
+7. Certificate Name: Fundamentals of Network Communication
+Platform: Coursera
+Issuing Organization: University of Colorado
+Date of Issue: 5 November 2024
+Link: https://coursera.org/verify/31IO3GE3IZO
+
+8. Certificate Name: Build Generative AI Apps and Solutions with No-Code Tools
+Platform: Infosys Springboard
+Issuing Organization: Infosys
+Date of Issue: 29 August 2025
+Link: https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing 
+
+9. Certificate Name: ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM
+Platform: Infosys Springboard
+Issuing Organization: Infosys
+Date of Issue: 15 August 2025
+Link: https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing
+
+10. Certificate Name: Computational Theory: Language Principle & Finite Automata Theory
+Platform: Infosys Springboard
+Issuing Organization: Infosys
+Date of Issue: 28 August 2025
+Link: https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing 
+
+11. Certificate Name: Master Generative AI & Generative AI Tools (ChatGPT & More)
+Platform: Udemy
+Issuing Organization: Udemy
+Certificate ID / S.No.: UC-a255b11c-2660-433c-b791-1e6a4f4eed53
+Date of Issue: 30 August 2025
+Link: https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing
+
+12. Certificate Name: Hone Your Communication Skills for Successful Career
+Platform: Lovely Professional University
+Issuing Organization: Centre for Professional Enhancement (LPU)
+Certificate ID / S.No.: 298068
+Date of Issue: 8 December 2023
+Link: https://drive.google.com/file/d/1hcOa9R5fyg1YgZNx9p40Hv3vGBFqJlAQ/view?usp=sharing
+
+13. Certificate Name: HTML & CSS
+Platform: thingQbator
+Issuing Organization: NASSCOM Foundation (Cisco CSR Program)
+Date of Issue: Not clearly mentioned
+Link: https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing
+
+14. Certificate Name: Full Stack Development with MERN
+Platform: thingQbator
+Issuing Organization: NASSCOM Foundation
+Date of Issue: Not clearly mentioned
+Link: https://drive.google.com/file/d/1w3wjEuguSuD2n39TFJOs_whI6LRxyRGb/view?usp=sharing
+
+15. Certificate Name: Responsive Web Design Developer Certification
+Platform: freeCodeCamp
+Issuing Organization: freeCodeCamp
+Certificate ID / S.No.: Not visible
+Date of Issue: 28 October 2023
+Link: https://freecodecamp.org/certification/Shivang_/responsive-web-design
+
+16. Certificate Name: Foundations of Cryptography
+Platform: NPTEL / SWAYAM
+Issuing Organization: Indian Institute of Information Technology Bangalore
+Certificate ID / S.No.: Roll No. NPTEL25CS31S1247500172
+Date of Issue: Jan–Apr 2025
+Link: https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing
+
+
+
+
+
+
+Add these badges in the certificates section: 
+
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="d1217157-4dd0-403e-8170-ac7c1466311a" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="7a6d3a9b-b7f2-4a8e-9cc5-8f9267faf3bb" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9e30672f-13dd-439c-b491-6354746f3881" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="35298063-104b-49b8-b6dd-cbf785965d01" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+
+
+
+
+
+
