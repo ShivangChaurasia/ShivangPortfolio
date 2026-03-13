@@ -1,0 +1,9 @@
+Landing Page/Home with: Name, Salutation, and a small description of the portfolio.
+    1. Scrollable with small-small description of each section with a visit/show more button.
+Nav Tabs: Home, Skills, Training, Projects, Certificates, Achievements, Resume Button(Resume Downloadable in PDF format), Contact (Highly Responsive).
+    Skill: List of skills with progress bars indicating proficiency levels each with logo of the tech stack.
+    Training: List of training courses with details like course name, platform, duration, and completion status.
+    Projects: Showcase of projects with images, descriptions, and links to GitHub repositories or live demos.
+    Certificates: Display of certificates with images, course names, and issuing organizations with a rotating/fliping animagtion with details at the back of card.
+    Achievements: List of achievements with descriptions and dates and it should be clickable that takes me to the relatable link of the achievement with a animated thumbnail.
+    Contact: A contact form with fields for name, email, subject, and message, along with a submit button. Additionally, include technical platform icons like linkedin or github that link to your profiles and a floating whatsapp icon whcih takes the viewer to whatsapp and gives access to my no. on whatsapp.
