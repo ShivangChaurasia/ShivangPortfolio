@@ -7,18 +7,62 @@ export default function Navbar({ theme, toggleTheme }) {
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
 
+    const [typedLogo, setTypedLogo] = useState("");
+    const logoName = "ShivangChaurasia";
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+
+        let isStopped = false;
+        let currentIndex = 0;
+        let isDeleting = false;
+
+        const type = () => {
+            if (isStopped) return;
+
+            const fullText = "ShivangChaurasia";
+            
+            setTypedLogo(isDeleting 
+                ? fullText.substring(0, currentIndex) 
+                : fullText.substring(0, currentIndex)
+            );
+
+            let typeSpeed = isDeleting ? 50 : 150;
+
+            if (!isDeleting && currentIndex < fullText.length) {
+                currentIndex++;
+                typeSpeed = 100 + Math.random() * 50; // Variable typing speed
+            } else if (!isDeleting && currentIndex === fullText.length) {
+                isDeleting = true;
+                typeSpeed = 3000; // Long pause at full text
+            } else if (isDeleting && currentIndex > 0) {
+                currentIndex--;
+                typeSpeed = 40; // Faster deletion
+            } else if (isDeleting && currentIndex === 0) {
+                isDeleting = false;
+                typeSpeed = 1000; // Pause before restarting
+            }
+
+            setTimeout(type, typeSpeed);
+        };
+
+        const initialTimeout = setTimeout(type, 1000);
+
+        return () => {
+            isStopped = true;
+            window.removeEventListener("scroll", handleScroll);
+            clearTimeout(initialTimeout);
+        };
     }, []);
 
     const navItems = [
         { name: "Home", path: "/" },
         { name: "Skills", path: "/skills" },
         { name: "Training", path: "/training" },
+        { name: "Education", path: "/education" },
         { name: "Projects", path: "/projects" },
         { name: "Certificates", path: "/certifications" },
         { name: "Achievements", path: "/achievements" },
@@ -29,10 +73,13 @@ export default function Navbar({ theme, toggleTheme }) {
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
             scrolled ? "py-4 glass shadow-lg" : "py-6 bg-transparent"
         }`}>
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center gap-4">
-                <Link to="/" className="text-2xl font-black tracking-tighter group transition-colors">
-                    <span className="text-primary group-hover:text-main transition-colors duration-300">ShivangChaurasia</span>
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center gap-12">
+                <Link to="/" className="text-2xl font-black tracking-tighter group transition-colors flex-shrink-0 min-w-[220px]">
+                    <span className="text-primary group-hover:text-main transition-colors duration-300">
+                        {typedLogo}
+                    </span>
                     <span className="text-main group-hover:text-primary transition-colors duration-300">.</span>
+                    <span className="inline-block w-[2px] h-[1em] bg-primary animate-pulse ml-1 align-middle"></span>
                 </Link>
 
                 {/* Desktop Menu */}

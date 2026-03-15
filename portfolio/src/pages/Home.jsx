@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import profileImg from "../assets/profile_avatar.png";
-import { ArrowRight, Code, BookOpen, Briefcase, Award, Trophy, Mail, Download } from "lucide-react";
+import { ArrowRight, Code, BookOpen, Briefcase, Award, Trophy, Mail, Download, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import CodolioCards from "../components/CodolioCards";
 
@@ -32,6 +32,7 @@ export default function Home() {
 
     const sections = [
         { title: "Technical Arsenal", icon: <Code />, link: "/skills", desc: "Expertise in MERN stack, Java, and AI integration." },
+        { title: "Education", icon: <GraduationCap />, link: "/education", desc: "Academic background and formal computer science training." },
         { title: "Training", icon: <BookOpen />, link: "/training", desc: "Bootcamps in Java & DSA with industrial certifications." },
         { title: "Featured Projects", icon: <Briefcase />, link: "/projects", desc: "AI-driven platforms and real-world web applications." },
         { title: "Certifications", icon: <Award />, link: "/certifications", desc: "Accredited credentials from Nasscom, Google, and Meta." },

@@ -10,6 +10,7 @@ import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import Training from "./pages/Training";
 import Achievements from "./pages/Achievements";
+import Education from "./pages/Education";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/certifications" element={<Certifications />} />
                     <Route path="/achievements" element={<Achievements />} />
+                    <Route path="/education" element={<Education />} />
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
                 <Footer />
