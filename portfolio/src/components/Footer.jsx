@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail, Phone, Heart, ArrowRight } from "lucide-react";
+import ProfileReach from "./ProfileReach";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -104,13 +105,13 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t border-main/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-xs text-muted font-medium flex items-center">
-                        © {currentYear} Shivang Chaurasia. Made with <Heart className="w-3 h-3 mx-1 text-red-500 fill-red-500" /> & Coffee.
-                    </p>
-                    <div className="flex space-x-8 text-[10px] font-black uppercase tracking-widest text-muted">
-                        <span className="hover:text-primary transition-colors cursor-default">Designed for Excellence</span>
-                        <span className="hover:text-primary transition-colors cursor-default">Built for Scale</span>
+                <div className="mt-16 pt-8 border-t border-main/5 flex flex-col items-center gap-8">
+                    <ProfileReach />
+                    
+                    <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6">
+                        <p className="text-xs text-muted font-medium flex items-center">
+                            © {currentYear} Shivang Chaurasia. 
+                        </p>
                     </div>
                 </div>
             </div>
