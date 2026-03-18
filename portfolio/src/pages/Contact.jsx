@@ -39,7 +39,12 @@ export default function Contact() {
                 ...formData,
                 createdAt: serverTimestamp()
             });
+        } catch (error) {
+            console.error("Firestore Error (check security rules):", error);
+            // Continue execution to still attempt sending the email
+        }
 
+        try {
             // Send Email via EmailJS
             await emailjs.send(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
