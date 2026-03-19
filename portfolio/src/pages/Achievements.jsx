@@ -71,10 +71,10 @@ export default function Achievements() {
             title: "Open Source Activity",
             statement: "Highly active contributor and creator of multiple successful public repositories.",
             stats: [
-                { label: "Yearly Contributions", value: "872", icon: <Activity className="w-4 h-4" /> },
-                { label: "Commits in 2026", value: "573", icon: <GitCommit className="w-4 h-4" /> },
+                { label: "Yearly Contributions", value: "910", icon: <Activity className="w-4 h-4" /> },
+                { label: "Commits in 2026", value: "622", icon: <GitCommit className="w-4 h-4" /> },
                 { label: "Public Repositories", value: "27", icon: <Code2 className="w-4 h-4" /> },
-                { label: "Repository Stars", value: "11", icon: <Star className="w-4 h-4 text-yellow-500" /> },
+                { label: "Repository Stars", value: "15", icon: <Star className="w-4 h-4 text-yellow-500" /> },
                 { label: "Pull Requests", value: "4", icon: <GitPullRequest className="w-4 h-4" /> }
             ],
             customBadgeRenderer: () => (
