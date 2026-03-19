@@ -69,17 +69,22 @@ export default function BackgroundAnimation({ theme }) {
             };
 
             p.update = () => {
+                let dx = p.x - mouseX;
+                let dy = p.y - mouseY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+
                 if (isMoving) {
                     p.x += p.vx;
                     p.y += p.vy;
+                } else if (dist < 250) {
+                    // Waving hoisted flag effect for stationary cursor
+                    const time = Date.now() * 0.002;
+                    p.x += Math.sin(time + p.y * 0.02) * 0.4;
+                    p.y += Math.cos(time + p.x * 0.02) * 0.4;
                 }
 
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                let dx = p.x - mouseX;
-                let dy = p.y - mouseY;
-                let dist = Math.sqrt(dx * dx + dy * dy);
 
                 p.currentOpacity = 0;
                 if (dist < 250) {
