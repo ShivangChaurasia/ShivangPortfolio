@@ -27,9 +27,9 @@ const ImageBadge = ({ src, alt, tooltip, isMarquee, description }) => (
             )}
         </div>
         {!isMarquee && description && (
-            <div className="ml-5 flex flex-col">
-                <span className="text-sm font-bold text-main">{alt}</span>
-                <span className="text-xs text-muted leading-relaxed mt-0.5">{description}</span>
+            <div className="ml-5 flex flex-col min-w-0 flex-1">
+                <span className="text-sm font-bold text-main truncate">{alt}</span>
+                <span className="text-xs text-muted leading-relaxed mt-0.5 break-words">{description}</span>
             </div>
         )}
     </div>
@@ -173,9 +173,13 @@ export default function Achievements() {
                     >
                         {/* Thumbnail */}
                         {platform.thumbnail && (
-                            <div className="w-full h-48 mb-6 rounded-2xl overflow-hidden relative border border-main/5">
-                                <img src={platform.thumbnail} alt={`${platform.name} profile`} className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                            <div className="w-full h-56 sm:h-64 mb-6 rounded-2xl overflow-hidden relative border border-main/10 bg-black flex items-center justify-center p-4">
+                                <div className="relative max-w-full max-h-full flex items-center justify-center opacity-90 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105">
+                                    <img src={platform.thumbnail} alt={`${platform.name} profile`} className="max-w-full max-h-full object-contain rounded-md shadow-lg" />
+                                    {/* Cover for Gemini watermark */}
+                                    <div className="absolute bottom-0 right-0 w-16 h-6 bg-black"></div>
+                                </div>
+                                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
                             </div>
                         )}
 
