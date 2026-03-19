@@ -13,7 +13,7 @@ export default function BackgroundAnimation({ theme }) {
 
         let animationFrameId;
         // Increase population for a much denser particle field
-        const particleCount = 600;
+        const particleCount = 1200;
         
         // Mouse defaults off-screen so they don't instantly burst
         let mouseX = -1000;
