@@ -48,11 +48,11 @@ export default function Achievements() {
             title: "DSA Problem Solving",
             statement: "Consistent problem solver with a strong focus on Data Structures & Algorithms.",
             stats: [
-                { label: "Problems Solved", value: "219 (123E, 88M, 8H)", icon: <Target className="w-4 h-4" /> },
-                { label: "Coding Streak", value: "39 Days", icon: <Flame className="w-4 h-4 text-orange-500" /> },
-                { label: "Active Days", value: "146 Days", icon: <Calendar className="w-4 h-4" /> },
+                { label: "Problems Solved", value: "256 (154E, 94M, 8H)", icon: <Target className="w-4 h-4" /> },
+                { label: "Coding Streak", value: "43 Days", icon: <Flame className="w-4 h-4 text-orange-500" /> },
+                { label: "Active Days", value: "153 Days", icon: <Calendar className="w-4 h-4" /> },
                 { label: "Contest Rating", value: "1478 (Top 51.42%)", icon: <Trophy className="w-4 h-4 text-yellow-500" /> },
-                { label: "Past Year Submissions", value: "807", icon: <Activity className="w-4 h-4" /> }
+
             ],
             customBadgeRenderer: () => (
                 <div className="flex flex-col gap-4 w-full">
@@ -119,10 +119,10 @@ export default function Achievements() {
             title: "Competitive Programming",
             statement: "Ranked globally for competitive programming and fundamental problem solving.",
             stats: [
-                { label: "Problems Solved", value: "343", icon: <Code2 className="w-4 h-4" /> },
-                { label: "Active Days", value: "149 Days", icon: <Calendar className="w-4 h-4" /> },
-                { label: "Contest Rating", value: "1418", icon: <Trophy className="w-4 h-4 text-yellow-500" /> },
-                { label: "Global Rank", value: "14100", icon: <Target className="w-4 h-4 text-blue-400" /> }
+                { label: "Problems Solved", value: "346", icon: <Code2 className="w-4 h-4" /> },
+                { label: "Active Days", value: "153 Days", icon: <Calendar className="w-4 h-4" /> },
+                { label: "Contest Rating", value: "1478", icon: <Trophy className="w-4 h-4 text-yellow-500" /> },
+                { label: "Global Rank", value: "3589", icon: <Target className="w-4 h-4 text-blue-400" /> }
             ],
             badges: [
                 { name: "Global Ranker", icon: "🌍" }

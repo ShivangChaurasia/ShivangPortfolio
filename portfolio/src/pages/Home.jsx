@@ -3,6 +3,7 @@ import profileImg from "../assets/profile_avatar.png";
 import { ArrowRight, Code, BookOpen, Briefcase, Award, Trophy, Mail, Download, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import CodolioCards from "../components/CodolioCards";
+import ResumeDownload from "../components/ResumeDownload";
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -82,15 +83,12 @@ export default function Home() {
                                 <Briefcase className="w-5 h-5 ml-1" />
                             </Link>
                             
-                            <a
-                                href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
-                                target="_blank"
-                                rel="noreferrer"
+                            <ResumeDownload
                                 className="glass border border-main/20 hover:bg-main/10 text-main px-8 py-3.5 rounded-full font-bold transition-all flex items-center space-x-2 active:scale-95"
                             >
                                 <span>Download Resume</span>
                                 <Download className="w-5 h-5 ml-1" />
-                            </a>
+                            </ResumeDownload>
 
                             <Link
                                 to="/contact"

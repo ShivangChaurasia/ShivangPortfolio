@@ -1,40 +1,42 @@
 import { useState } from "react";
 import { 
-    Layout, Server, Database, Cpu, Globe, Terminal, FileCode, Layers, 
-    Search, Workflow, Cog, Smartphone, Cloud, Boxes, Shapes, Code,
-    GitBranch, Github, Shield
-} from "lucide-react";
+    FaJava, FaPython, FaReact, FaNodeJs, FaPhp, FaHtml5, FaCss3Alt, 
+    FaBootstrap, FaGitAlt, FaGithub, FaCubes, FaShieldAlt, FaProjectDiagram, FaServer
+} from "react-icons/fa";
+import { 
+    SiC, SiJavascript, SiExpress, SiTailwindcss, SiMongodb, SiMysql, 
+    SiPostman, SiFirebase, SiVercel 
+} from "react-icons/si";
 
 export default function Skills() {
     const [activeTab, setActiveTab] = useState("All");
 
     const allSkills = [
-        { name: "Java", icon: <FileCode className="w-10 h-10 text-orange-500" />, category: "Backend" },
-        { name: "C", icon: <Terminal className="w-10 h-10 text-blue-500" />, category: "Backend" },
-        { name: "JavaScript", icon: <FileCode className="w-10 h-10 text-yellow-400" />, category: "Frontend" },
-        { name: "Python", icon: <Terminal className="w-10 h-10 text-blue-400" />, category: "Backend" },
-        { name: "React (Vite)", icon: <Layout className="w-10 h-10 text-cyan-400" />, category: "Frontend" },
-        { name: "Node.js", icon: <Server className="w-10 h-10 text-green-500" />, category: "Backend" },
-        { name: "Express.js", icon: <Layers className="w-10 h-10 text-gray-400" />, category: "Backend" },
-        { name: "PHP", icon: <FileCode className="w-10 h-10 text-indigo-500" />, category: "Backend" },
-        { name: "HTML", icon: <Code className="w-10 h-10 text-orange-600" />, category: "Frontend" },
-        { name: "CSS", icon: <Shapes className="w-10 h-10 text-blue-500" />, category: "Frontend" },
-        { name: "Tailwind CSS", icon: <Shapes className="w-10 h-10 text-cyan-500" />, category: "Frontend" },
-        { name: "Bootstrap", icon: <Shapes className="w-10 h-10 text-purple-600" />, category: "Frontend" },
-        { name: "Java Swing", icon: <Layout className="w-10 h-10 text-red-500" />, category: "Tools & Core" },
-        { name: "MongoDB", icon: <Database className="w-10 h-10 text-green-600" />, category: "Backend" },
-        { name: "MySQL", icon: <Database className="w-10 h-10 text-blue-600" />, category: "Backend" },
-        { name: "Git", icon: <GitBranch className="w-10 h-10 text-orange-600" />, category: "Tools & Core" },
-        { name: "GitHub", icon: <Github className="w-10 h-10 text-white" />, category: "Tools & Core" },
-        { name: "Postman", icon: <Cloud className="w-10 h-10 text-orange-500" />, category: "Tools & Core" },
-        { name: "Firebase", icon: <Cloud className="w-10 h-10 text-yellow-500" />, category: "Tools & Core" },
-        { name: "Vercel", icon: <Globe className="w-10 h-10 text-white" />, category: "Tools & Core" },
-        { name: "DSA", icon: <Workflow className="w-10 h-10 text-primary" />, category: "Tools & Core" },
-        { name: "OOPs", icon: <Cog className="w-10 h-10 text-secondary" />, category: "Tools & Core" },
-        { name: "REST APIs", icon: <Globe className="w-10 h-10 text-green-400" />, category: "Backend" },
-        { name: "Auth Systems", icon: <Shield className="w-10 h-10 text-red-400" />, category: "Backend" }
+        { name: "Java", icon: FaJava, color: "text-orange-500", category: "Backend" },
+        { name: "C", icon: SiC, color: "text-blue-500", category: "Backend" },
+        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400", category: "Frontend" },
+        { name: "Python", icon: FaPython, color: "text-blue-400", category: "Backend" },
+        { name: "React (Vite)", icon: FaReact, color: "text-cyan-400", category: "Frontend" },
+        { name: "Node.js", icon: FaNodeJs, color: "text-green-500", category: "Backend" },
+        { name: "Express.js", icon: SiExpress, color: "text-gray-400", category: "Backend" },
+        { name: "PHP", icon: FaPhp, color: "text-indigo-500", category: "Backend" },
+        { name: "HTML", icon: FaHtml5, color: "text-orange-600", category: "Frontend" },
+        { name: "CSS", icon: FaCss3Alt, color: "text-blue-500", category: "Frontend" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500", category: "Frontend" },
+        { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600", category: "Frontend" },
+        { name: "Java Swing", icon: FaJava, color: "text-red-500", category: "Tools & Core" },
+        { name: "MongoDB", icon: SiMongodb, color: "text-green-600", category: "Backend" },
+        { name: "MySQL", icon: SiMysql, color: "text-blue-600", category: "Backend" },
+        { name: "Git", icon: FaGitAlt, color: "text-orange-600", category: "Tools & Core" },
+        { name: "GitHub", icon: FaGithub, color: "text-gray-800 dark:text-white", category: "Tools & Core" },
+        { name: "Postman", icon: SiPostman, color: "text-orange-500", category: "Tools & Core" },
+        { name: "Firebase", icon: SiFirebase, color: "text-yellow-500", category: "Tools & Core" },
+        { name: "Vercel", icon: SiVercel, color: "text-gray-900 dark:text-white", category: "Tools & Core" },
+        { name: "DSA", icon: FaProjectDiagram, color: "text-primary", category: "Tools & Core" },
+        { name: "OOPs", icon: FaCubes, color: "text-secondary", category: "Tools & Core" },
+        { name: "REST APIs", icon: FaServer, color: "text-green-400", category: "Backend" },
+        { name: "Auth Systems", icon: FaShieldAlt, color: "text-red-400", category: "Backend" }
     ];
-
 
     const tabs = ["All", "Frontend", "Backend", "Tools & Core"];
     const filteredSkills = activeTab === "All" ? allSkills : allSkills.filter(s => s.category === activeTab);
@@ -69,13 +71,18 @@ export default function Skills() {
                 {filteredSkills.map((skill, index) => (
                     <div
                         key={index}
-                        className="glass-card aspect-square flex flex-col items-center justify-center p-6 text-center group hover:border-primary/50 animate-slide-up"
+                        className="glass-card aspect-square flex flex-col items-center justify-center p-6 text-center group hover:border-primary/50 hover:bg-white/5 dark:hover:bg-white/10 transition-all duration-300 animate-slide-up relative overflow-hidden"
                         style={{ animationDelay: `${index * 50}ms` }}
                     >
-                        <div className="mb-4 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
-                            {skill.icon}
+                        {/* Interactive background glow effect */}
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-current ${skill.color}`}></div>
+                        
+                        <div className={`relative mb-4 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 ${skill.color}`}>
+                            {/* Inner glow effect on the icon */}
+                            <div className="absolute inset-0 bg-current opacity-0 group-hover:opacity-25 blur-xl transition-all duration-500 rounded-full"></div>
+                            <skill.icon className="relative z-10 w-12 h-12 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-500" />
                         </div>
-                        <span className="text-sm font-bold tracking-wider text-main group-hover:text-primary transition-colors">
+                        <span className="text-sm font-bold tracking-wider text-main group-hover:text-primary transition-colors relative z-10">
                             {skill.name}
                         </span>
                     </div>
@@ -83,34 +90,5 @@ export default function Skills() {
             </div>
         </div>
     );
-}
-
-
-function BranchIcon({ className }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-            <line x1="6" y1="3" x2="6" y2="15"></line>
-            <circle cx="18" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M18 9a9 9 0 0 1-9 9"></path>
-        </svg>
-    )
-}
-
-function GitHubIcon({ className }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-        </svg>
-    )
-}
-
-function ShieldIcon({ className }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-    )
 }
 

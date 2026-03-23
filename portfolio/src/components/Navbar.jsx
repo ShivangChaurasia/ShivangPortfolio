@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Download, Sun, Moon } from "lucide-react";
+import ResumeDownload from "./ResumeDownload";
 
 export default function Navbar({ theme, toggleTheme }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -106,15 +107,12 @@ export default function Navbar({ theme, toggleTheme }) {
                         {theme === "dark" ? <Sun className="w-5 h-5 group-hover:rotate-45 transition-transform duration-500" /> : <Moon className="w-5 h-5 text-indigo-400 group-hover:-rotate-12 transition-transform duration-500" />}
                     </button>
 
-                    <a 
-                        href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
-                        target="_blank"
-                        rel="noreferrer"
+                    <ResumeDownload 
                         className="bg-primary hover:bg-white hover:text-black text-white px-6 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-primary/20 active:scale-95 flex items-center space-x-2"
                     >
                         <span>Resume</span>
                         <Download className="w-4 h-4" />
-                    </a>
+                    </ResumeDownload>
                 </ul>
 
                 {/* Mobile Menu Toggle */}
@@ -149,16 +147,13 @@ export default function Navbar({ theme, toggleTheme }) {
                             </li>
                         ))}
                         <li>
-                            <a 
-                                href="https://drive.google.com/file/d/1QXDhaYfA1b9ot4g0FOJUDNl4Zk8AYUrT/view?usp=sharing"
-                                target="_blank"
-                                rel="noreferrer"
+                            <ResumeDownload 
                                 className="bg-primary inline-flex items-center space-x-2 text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest w-full justify-center shadow-xl shadow-primary/20"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <span>Download Resume</span>
                                 <Download className="w-5 h-5" />
-                            </a>
+                            </ResumeDownload>
                         </li>
                     </ul>
                 </div>
