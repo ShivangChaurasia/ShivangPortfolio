@@ -19,6 +19,11 @@ import reactHackerRankImg from "../assets/certs/React-HackerRank.png";
 import jsHackerRankImg from "../assets/certs/JavaScript-HackerRank.png";
 import cssHackerRankImg from "../assets/certs/CSS-HackerRank.png";
 
+import cProgrammingImg from "../assets/certs/C Progaming.png";
+import cppOopsImg from "../assets/certs/Cpp & Oops.png";
+import dsaImg from "../assets/certs/DSA.png";
+import javaImg from "../assets/certs/Java.png";
+
 export default function Certifications() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [activeTab, setActiveTab] = useState("All");
@@ -38,6 +43,46 @@ export default function Certifications() {
     }, []);
 
     const certifications = [
+        {
+            title: "Data Structures & Algorithms",
+            issuer: "NPTEL / SWAYAM",
+            platform: "NPTEL",
+            date: "N/A",
+            category: "Core",
+            link: "https://drive.google.com/file/d/1Js1xAKXziyoch6w1Nt60HvTOAVwOxWdA/view?usp=sharing",
+            thumbnail: dsaImg,
+            details: "In-depth study of algorithmic problem solving and data structure optimization."
+        },
+        {
+            title: "Java Programming",
+            issuer: "NPTEL / SWAYAM",
+            platform: "NPTEL",
+            date: "N/A",
+            category: "Core",
+            link: "https://drive.google.com/file/d/10leWK3jjvWrmlZulRW_pCJW5ZTNJPQ7n/view?usp=sharing",
+            thumbnail: javaImg,
+            details: "Mastery of Object-Oriented Programming principles using Java."
+        },
+        {
+            title: "C++ & Object Oriented Programming",
+            issuer: "NPTEL / SWAYAM",
+            platform: "NPTEL",
+            date: "N/A",
+            category: "Core",
+            link: "https://drive.google.com/file/d/1KZgFDq1YFgcEcxpwEoLqBJ9GT1-F8Y1s/view?usp=sharing",
+            thumbnail: cppOopsImg,
+            details: "Comprehensive understanding of OOP concepts and C++ standard template library."
+        },
+        {
+            title: "C Programming",
+            issuer: "NPTEL / SWAYAM",
+            platform: "NPTEL",
+            date: "N/A",
+            category: "Core",
+            link: "https://drive.google.com/file/d/1D-AjTtmOkjsx7oLCLoYrFt5sCGEvZAKD/view?usp=sharing",
+            thumbnail: cProgrammingImg,
+            details: "Foundational knowledge in C language, memory management, and system-level programming."
+        },
         {
             title: "Full Stack Development with MERN",
             issuer: "NASSCOM Foundation",
@@ -218,11 +263,23 @@ export default function Certifications() {
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto animate-fade-in text-main">
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-main">Professional <span className="text-gradient">Credentials</span></h2>
                 <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     Industry-recognized certifications representing specialized expertise in Networking, AI, and Full-Stack development.
                 </p>
+                
+                <div className="mt-10 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
+                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
+                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <Award className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-4xl font-extrabold text-main leading-tight">{certifications.length}</p>
+                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Total Certifications</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Credly Badges Section */}
