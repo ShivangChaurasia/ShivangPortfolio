@@ -12,6 +12,7 @@ import Training from "./pages/Training";
 import Achievements from "./pages/Achievements";
 import Education from "./pages/Education";
 import WhatsAppButton from "./components/WhatsAppButton";
+import Chatbot from "./components/Chatbot";
 
 export default function App() {
     const [theme, setTheme] = useState(() => {
@@ -49,6 +50,7 @@ export default function App() {
                 </Routes>
                 <Footer />
                 <WhatsAppButton />
+                <Chatbot />
             </div>
         </Router>
     );

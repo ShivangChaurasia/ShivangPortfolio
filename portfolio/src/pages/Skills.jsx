@@ -16,6 +16,7 @@ export default function Skills() {
         { name: "React (Vite)", icon: <Layout className="w-10 h-10 text-cyan-400" />, category: "Frontend" },
         { name: "Node.js", icon: <Server className="w-10 h-10 text-green-500" />, category: "Backend" },
         { name: "Express.js", icon: <Layers className="w-10 h-10 text-gray-400" />, category: "Backend" },
+        { name: "PHP", icon: <FileCode className="w-10 h-10 text-indigo-500" />, category: "Backend" },
         { name: "HTML", icon: <Code className="w-10 h-10 text-orange-600" />, category: "Frontend" },
         { name: "CSS", icon: <Shapes className="w-10 h-10 text-blue-500" />, category: "Frontend" },
         { name: "Tailwind CSS", icon: <Shapes className="w-10 h-10 text-cyan-500" />, category: "Frontend" },
