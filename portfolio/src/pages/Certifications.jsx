@@ -44,6 +44,57 @@ export default function Certifications() {
 
     const certifications = [
         {
+            title: "The Bits and Bytes of Computer Networking",
+            issuer: "Google",
+            platform: "Coursera",
+            date: "7 Sept 2024",
+            category: "Core",
+            link: "https://coursera.org/verify/57R6R13H4JIR",
+            thumbnail: bitsBytesImg,
+            details: "Comprehensive networking fundamentals: TCP/IP, DNS, DHCP, and network troubleshooting."
+        },
+        {
+            title: "Introduction to Hardware and Operating Systems",
+            issuer: "IBM",
+            platform: "Coursera",
+            date: "10 Sept 2024",
+            category: "Core",
+            link: "https://coursera.org/verify/XIDKIW0JRWQ6",
+            thumbnail: hardwareOSImg,
+            details: "Core hardware architecture, OS management, and system optimization principles."
+        },
+        {
+            title: "Peer-to-Peer Protocols and Local Area Networks",
+            issuer: "University of Colorado",
+            platform: "Coursera",
+            date: "4 Nov 2024",
+            category: "Core",
+            link: "https://coursera.org/verify/4D2Y6JC6OHQ9",
+            thumbnail: p2pImg,
+            details: "Advanced study of decentralised network protocols and LAN architecture."
+        },
+        {
+            title: "Fundamentals of Network Communication",
+            issuer: "University of Colorado",
+            platform: "Coursera",
+            date: "5 Nov 2024",
+            category: "Core",
+            link: "https://coursera.org/verify/31IO3GE3IZO",
+            thumbnail: networkCommsImg,
+            details: "Layered network models, data transmission, and communication protocols."
+        },
+        {
+            title: "Foundations of Cryptography",
+            issuer: "IIIT Bangalore",
+            platform: "NPTEL / SWAYAM",
+            date: "Jan–Apr 2025",
+            category: "Core",
+            id: "Roll No. NPTEL25CS31S1247500172",
+            link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
+            thumbnail: cryptographyImg,
+            details: "Academic dive into cryptographic algorithms, security protocols, and encryption."
+        },
+        {
             title: "Data Structures & Algorithms",
             issuer: "NPTEL / SWAYAM",
             platform: "NPTEL",
@@ -84,6 +135,36 @@ export default function Certifications() {
             details: "Foundational knowledge in C language, memory management, and system-level programming."
         },
         {
+            title: "Build Generative AI Apps and Solutions with No-Code Tools",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "29 Aug 2025",
+            category: "Development",
+            link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
+            thumbnail: buildGenAIImg,
+            details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
+        },
+        {
+            title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "15 Aug 2025",
+            category: "Development",
+            link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
+            thumbnail: chatGptImg,
+            details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
+        },
+        {
+            title: "Computational Theory: Language Principle & Finite Automata Theory",
+            issuer: "Infosys",
+            platform: "Infosys Springboard",
+            date: "28 Aug 2025",
+            category: "Core",
+            link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
+            thumbnail: computationalTheoryImg,
+            details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
+        },
+        {
             title: "Full Stack Development with MERN",
             issuer: "NASSCOM Foundation",
             platform: "thingQbator",
@@ -94,25 +175,24 @@ export default function Certifications() {
             details: "Comprehensive MERN stack bootcamp focusing on real-world web application architecture."
         },
         {
-            title: "Foundations of Cryptography",
-            issuer: "IIIT Bangalore",
-            platform: "NPTEL / SWAYAM",
-            date: "Jan–Apr 2025",
-            category: "Core",
-            id: "Roll No. NPTEL25CS31S1247500172",
-            link: "https://drive.google.com/file/d/1KiCXdKOXGmQQt5IJVAvMrPp6r92IRUhZ/view?usp=sharing",
-            thumbnail: cryptographyImg,
-            details: "Academic dive into cryptographic algorithms, security protocols, and encryption."
+            title: "HTML & CSS",
+            issuer: "NASSCOM Foundation (Cisco CSR Program)",
+            platform: "thingQbator",
+            date: "N/A",
+            category: "Development",
+            link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
+            thumbnail: htmlCssThinqubatorImg,
+            details: "Building responsive layouts and semantic web structures with modern CSS."
         },
         {
-            title: "The Bits and Bytes of Computer Networking",
-            issuer: "Google",
-            platform: "Coursera",
-            date: "7 Sept 2024",
-            category: "Core",
-            link: "https://coursera.org/verify/57R6R13H4JIR",
-            thumbnail: bitsBytesImg,
-            details: "Comprehensive networking fundamentals: TCP/IP, DNS, DHCP, and network troubleshooting."
+            title: "Responsive Web Design Developer Certification",
+            issuer: "freeCodeCamp",
+            platform: "freeCodeCamp",
+            date: "28 Oct 2023",
+            category: "Development",
+            link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
+            thumbnail: freeCodeCampImg,
+            details: "Industry-standard certification for mastered front-end responsive design techniques."
         },
         {
             title: "React (Basic)",
@@ -137,37 +217,6 @@ export default function Certifications() {
             details: "Demonstrated proficiency in core algorithm logic, data structures, and ES6+ syntax."
         },
         {
-            title: "Master Generative AI & Generative AI Tools (ChatGPT & More)",
-            issuer: "Udemy",
-            platform: "Udemy",
-            date: "30 Aug 2025",
-            category: "Development",
-            id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
-            link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
-            thumbnail: generativeAiImg,
-            details: "End-to-end training in generative tools for productivity and application enhancement."
-        },
-        {
-            title: "Build Generative AI Apps and Solutions with No-Code Tools",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "29 Aug 2025",
-            category: "Development",
-            link: "https://drive.google.com/file/d/1dImvl24Bs3m7buBjmhrAohNydNdCJfUY/view?usp=sharing",
-            thumbnail: buildGenAIImg,
-            details: "Developing AI-powered solutions using modern LLM frameworks without manual coding."
-        },
-        {
-            title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "15 Aug 2025",
-            category: "Development",
-            link: "https://drive.google.com/file/d/1yB1EqCPDYP4PmAKoGwaDnNlChZaubW3U/view?usp=sharing",
-            thumbnail: chatGptImg,
-            details: "Mastering advanced prompt engineering techniques to maximize LLM performance."
-        },
-        {
             title: "CSS (Basic)",
             issuer: "HackerRank",
             platform: "HackerRank",
@@ -179,64 +228,15 @@ export default function Certifications() {
             details: "Building responsive layouts and professional styling with modern CSS properties."
         },
         {
-            title: "Responsive Web Design Developer Certification",
-            issuer: "freeCodeCamp",
-            platform: "freeCodeCamp",
-            date: "28 Oct 2023",
+            title: "Master Generative AI & Generative AI Tools (ChatGPT & More)",
+            issuer: "Udemy",
+            platform: "Udemy",
+            date: "30 Aug 2025",
             category: "Development",
-            link: "https://freecodecamp.org/certification/Shivang_/responsive-web-design",
-            thumbnail: freeCodeCampImg,
-            details: "Industry-standard certification for mastered front-end responsive design techniques."
-        },
-        {
-            title: "HTML & CSS",
-            issuer: "NASSCOM Foundation (Cisco CSR Program)",
-            platform: "thingQbator",
-            date: "N/A",
-            category: "Development",
-            link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
-            thumbnail: htmlCssThinqubatorImg,
-            details: "Building responsive layouts and semantic web structures with modern CSS."
-        },
-        {
-            title: "Computational Theory: Language Principle & Finite Automata Theory",
-            issuer: "Infosys",
-            platform: "Infosys Springboard",
-            date: "28 Aug 2025",
-            category: "Core",
-            link: "https://drive.google.com/file/d/1O0pZ7YVtf0oVYh0TcZLEum8GgkmO0Pky/view?usp=sharing",
-            thumbnail: computationalTheoryImg,
-            details: "Deep dive into state machines, grammars, and the mathematical foundations of computation."
-        },
-        {
-            title: "Introduction to Hardware and Operating Systems",
-            issuer: "IBM",
-            platform: "Coursera",
-            date: "10 Sept 2024",
-            category: "Core",
-            link: "https://coursera.org/verify/XIDKIW0JRWQ6",
-            thumbnail: hardwareOSImg,
-            details: "Core hardware architecture, OS management, and system optimization principles."
-        },
-        {
-            title: "Peer-to-Peer Protocols and Local Area Networks",
-            issuer: "University of Colorado",
-            platform: "Coursera",
-            date: "4 Nov 2024",
-            category: "Core",
-            link: "https://coursera.org/verify/4D2Y6JC6OHQ9",
-            thumbnail: p2pImg,
-            details: "Advanced study of decentralised network protocols and LAN architecture."
-        },
-        {
-            title: "Fundamentals of Network Communication",
-            issuer: "University of Colorado",
-            platform: "Coursera",
-            date: "5 Nov 2024",
-            category: "Core",
-            link: "https://coursera.org/verify/31IO3GE3IZO",
-            thumbnail: networkCommsImg,
-            details: "Layered network models, data transmission, and communication protocols."
+            id: "UC-a255b11c-2660-433c-b791-1e6a4f4eed53",
+            link: "https://drive.google.com/file/d/1VypzQv8dqFY2I45p5ccok9TNfXqAlDCu/view?usp=sharing",
+            thumbnail: generativeAiImg,
+            details: "End-to-end training in generative tools for productivity and application enhancement."
         },
         {
             title: "Hone Your Communication Skills for Successful Career",
@@ -288,18 +288,6 @@ export default function Certifications() {
                             data-share-badge-host="https://www.credly.com"
                         ></div>
                     ))}
-                </div>
-                
-                <div className="mt-12 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
-                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
-                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                            <ShieldCheck className="w-6 h-6" />
-                        </div>
-                        <div className="text-left">
-                            <p className="text-4xl font-extrabold text-main leading-tight">{badges.length}+</p>
-                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Verified Badges</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -396,14 +384,24 @@ export default function Certifications() {
                     ))}
                 </div>
 
-                <div className="mt-16 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
-                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
-                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                            <Award className="w-6 h-6" />
+                <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
+                    <div className="glass px-10 py-5 rounded-3xl flex items-center gap-6 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10 hover:border-primary/40 hover:bg-primary/10 transition-all duration-300 w-full md:w-auto">
+                        <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary shadow-inner">
+                            <Award className="w-7 h-7" />
                         </div>
                         <div className="text-left">
-                            <p className="text-4xl font-extrabold text-main leading-tight">{Math.floor(certifications.length / 10) * 10}+</p>
-                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Total Certifications</p>
+                            <p className="text-4xl font-black text-main leading-tight drop-shadow-sm">{Math.floor(certifications.length / 10) * 10}+</p>
+                            <p className="text-sm uppercase tracking-widest text-primary font-bold">Total Certifications</p>
+                        </div>
+                    </div>
+                    
+                    <div className="glass px-10 py-5 rounded-3xl flex items-center gap-6 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10 hover:border-primary/40 hover:bg-primary/10 transition-all duration-300 w-full md:w-auto">
+                        <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary shadow-inner">
+                            <ShieldCheck className="w-7 h-7" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-4xl font-black text-main leading-tight drop-shadow-sm">{badges.length}+</p>
+                            <p className="text-sm uppercase tracking-widest text-primary font-bold">Verified Badges</p>
                         </div>
                     </div>
                 </div>
