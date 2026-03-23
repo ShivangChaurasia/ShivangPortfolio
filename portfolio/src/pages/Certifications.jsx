@@ -268,18 +268,6 @@ export default function Certifications() {
                 <p className="text-muted max-w-2xl mx-auto text-lg md:text-xl font-light">
                     Industry-recognized certifications representing specialized expertise in Networking, AI, and Full-Stack development.
                 </p>
-                
-                <div className="mt-10 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
-                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
-                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                            <Award className="w-6 h-6" />
-                        </div>
-                        <div className="text-left">
-                            <p className="text-4xl font-extrabold text-main leading-tight">{certifications.length}</p>
-                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Total Certifications</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             {/* Credly Badges Section */}
@@ -300,6 +288,18 @@ export default function Certifications() {
                             data-share-badge-host="https://www.credly.com"
                         ></div>
                     ))}
+                </div>
+                
+                <div className="mt-12 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
+                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
+                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <ShieldCheck className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-4xl font-extrabold text-main leading-tight">{badges.length}+</p>
+                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Verified Badges</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -394,6 +394,18 @@ export default function Certifications() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-16 flex items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '200ms' }}>
+                    <div className="glass px-8 py-4 rounded-3xl flex items-center gap-4 bg-primary/5 border-primary/20 shadow-xl shadow-primary/10">
+                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <Award className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-4xl font-extrabold text-main leading-tight">{Math.floor(certifications.length / 10) * 10}+</p>
+                            <p className="text-xs uppercase tracking-widest text-muted font-bold">Total Certifications</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
