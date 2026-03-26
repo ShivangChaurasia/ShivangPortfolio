@@ -96,8 +96,8 @@ export default function Certifications() {
         },
         {
             title: "Data Structures & Algorithms",
-            issuer: "NPTEL / SWAYAM",
-            platform: "NPTEL",
+            issuer: "Lovely Professional University",
+            platform: "iamneo",
             date: "N/A",
             category: "Core",
             link: "https://drive.google.com/file/d/1Js1xAKXziyoch6w1Nt60HvTOAVwOxWdA/view?usp=sharing",
@@ -106,8 +106,8 @@ export default function Certifications() {
         },
         {
             title: "Java Programming",
-            issuer: "NPTEL / SWAYAM",
-            platform: "NPTEL",
+            issuer: "Lovely Professional University",
+            platform: "iamneo",
             date: "N/A",
             category: "Core",
             link: "https://drive.google.com/file/d/10leWK3jjvWrmlZulRW_pCJW5ZTNJPQ7n/view?usp=sharing",
@@ -116,8 +116,8 @@ export default function Certifications() {
         },
         {
             title: "C++ & Object Oriented Programming",
-            issuer: "NPTEL / SWAYAM",
-            platform: "NPTEL",
+            issuer: "Lovely Professional University",
+            platform: "iamneo",
             date: "N/A",
             category: "Core",
             link: "https://drive.google.com/file/d/1KZgFDq1YFgcEcxpwEoLqBJ9GT1-F8Y1s/view?usp=sharing",
@@ -126,8 +126,8 @@ export default function Certifications() {
         },
         {
             title: "C Programming",
-            issuer: "NPTEL / SWAYAM",
-            platform: "NPTEL",
+            issuer: "Lovely Professional University",
+            platform: "iamneo",
             date: "N/A",
             category: "Core",
             link: "https://drive.google.com/file/d/1D-AjTtmOkjsx7oLCLoYrFt5sCGEvZAKD/view?usp=sharing",
