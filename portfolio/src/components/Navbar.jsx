@@ -63,10 +63,10 @@ export default function Navbar({ theme, toggleTheme }) {
         { name: "Home", path: "/" },
         { name: "Skills", path: "/skills" },
         { name: "Training", path: "/training" },
-        { name: "Education", path: "/education" },
         { name: "Projects", path: "/projects" },
         { name: "Certificates", path: "/certifications" },
         { name: "Achievements", path: "/achievements" },
+        { name: "Education", path: "/education" },
         { name: "Contact", path: "/contact" },
     ];
 
