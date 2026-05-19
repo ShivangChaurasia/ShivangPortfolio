@@ -1,4 +1,5 @@
 import { Trophy, Calendar, ExternalLink, Code2, GitCommit, GitPullRequest, Star, Award, Target, Flame, Activity } from "lucide-react";
+import CodolioCards from "../components/CodolioCards";
 
 import badge50Days from "../assets/Achievements/50daysBadge.png";
 import badgePullShark from "../assets/Achievements/PullShark.png";
@@ -96,7 +97,9 @@ export default function Achievements() {
             title: "Skill Certifications",
             statement: "Demonstrated proficiency across multiple languages and problem-solving domains.",
             stats: [
-                { label: "Platform Status", value: "Multi-Badge Earner", icon: <Trophy className="w-4 h-4" /> }
+                { label: "Platform Status", value: "Multi-Badge Earner", icon: <Trophy className="w-4 h-4" /> },
+                { label: "Verified Skills", value: "React, JS, CSS", icon: <Award className="w-4 h-4 text-green-400" /> },
+                { label: "Languages Certified", value: "Java, Python, C", icon: <Code2 className="w-4 h-4 text-cyan-400" /> }
             ],
             customBadgeRenderer: () => (
                 <div className="flex flex-wrap gap-4 justify-center">
@@ -160,6 +163,13 @@ export default function Achievements() {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Interactive 3D Codolio Cards */}
+            <div className="mb-24 relative z-10 glass border border-main/10 rounded-[40px] p-2 md:p-6 overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+                <CodolioCards />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
