@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 // Asset Imports
+import HealthValidatorImg from "../assets/projects/healthvalidator.png";
+import ParkEaseImg from "../assets/projects/parkease.png";
 import AspirelensImg from "../assets/projects/aspirelens.png";
 import WipeDataImg from "../assets/projects/wipedata.png";
 import StudySyncImg from "../assets/projects/studysync.png";
@@ -19,6 +21,26 @@ export default function Projects() {
     const tabs = ["All", "Full Stack", "Frontend", "HTML"];
 
     const projects = [
+        {
+            title: "Health Validator",
+            category: "Full Stack",
+            subtitle: "DevOps Automated Pipeline",
+            description: "A lightweight system health monitoring REST API deployed via a fully automated DevOps pipeline. Integrates containerization, continuous integration/continuous deployment configurations, and public AWS cloud hosting.",
+            tags: ["DevOps", "Docker", "AWS EC2", "GitHub Actions", "Node.js", "Express"],
+            github: "https://github.com/ShivangChaurasia/Health_Validator_Docker_CICD_Pipeline_Jenkins_EC2_GithubActions",
+            live: "http://13.61.33.199:3000",
+            image: HealthValidatorImg
+        },
+        {
+            title: "ParkEase",
+            category: "Full Stack",
+            subtitle: "Smart Mobility Operating System",
+            description: "A premium, real-time parking management ecosystem adopting an intuitive 'movie-ticket booking' model. Eliminates expensive hardware dependencies by integrating geospatial MongoDB queries, custom in-app wallet transaction management, and active driver/host perspectives.",
+            tags: ["Laravel", "MongoDB", "Blade Templates", "Bootstrap", "Google Maps API", "UPI Integration"],
+            github: "https://github.com/ShivangChaurasia/ParkEase-Cost-Effective-Parking_System",
+            live: "https://parkease-3as5.onrender.com/",
+            image: ParkEaseImg
+        },
         {
             title: "AspireLens",
             category: "Full Stack",
