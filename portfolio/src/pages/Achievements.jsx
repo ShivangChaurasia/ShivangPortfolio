@@ -119,8 +119,8 @@ export default function Achievements() {
             title: "Competitive Programming",
             statement: "Ranked globally for competitive programming and fundamental problem solving.",
             stats: [
-                { label: "Problems Solved", value: "346", icon: <Code2 className="w-4 h-4" /> },
-                { label: "Active Days", value: "153 Days", icon: <Calendar className="w-4 h-4" /> },
+                { label: "Problems Solved", value: "350", icon: <Code2 className="w-4 h-4" /> },
+                { label: "Active Days", value: "159 Days", icon: <Calendar className="w-4 h-4" /> },
                 { label: "Contest Rating", value: "1478", icon: <Trophy className="w-4 h-4 text-yellow-500" /> },
                 { label: "Global Rank", value: "3589", icon: <Target className="w-4 h-4 text-blue-400" /> }
             ],

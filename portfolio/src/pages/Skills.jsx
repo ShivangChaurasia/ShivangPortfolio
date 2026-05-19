@@ -1,38 +1,58 @@
 import { useState } from "react";
 import { 
     FaJava, FaPython, FaReact, FaNodeJs, FaPhp, FaHtml5, FaCss3Alt, 
-    FaBootstrap, FaGitAlt, FaGithub, FaCubes, FaShieldAlt, FaProjectDiagram, FaServer
+    FaBootstrap, FaGitAlt, FaGithub, FaCubes, FaShieldAlt, FaProjectDiagram, FaServer,
+    FaDocker, FaAws, FaLaravel, FaTrophy
 } from "react-icons/fa";
 import { 
     SiC, SiJavascript, SiExpress, SiTailwindcss, SiMongodb, SiMysql, 
-    SiPostman, SiFirebase, SiVercel 
+    SiPostman, SiFirebase, SiVercel,
+    SiCplusplus, SiGithubactions, SiJenkins, SiGooglemaps, SiFramer
 } from "react-icons/si";
 
 export default function Skills() {
     const [activeTab, setActiveTab] = useState("All");
 
     const allSkills = [
+        // Languages
         { name: "Java", icon: FaJava, color: "text-orange-500", category: "Backend" },
-        { name: "C", icon: SiC, color: "text-blue-500", category: "Backend" },
-        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400", category: "Frontend" },
+        { name: "C++", icon: SiCplusplus, color: "text-blue-600", category: "Backend" },
         { name: "Python", icon: FaPython, color: "text-blue-400", category: "Backend" },
-        { name: "React (Vite)", icon: FaReact, color: "text-cyan-400", category: "Frontend" },
-        { name: "Node.js", icon: FaNodeJs, color: "text-green-500", category: "Backend" },
-        { name: "Express.js", icon: SiExpress, color: "text-gray-400", category: "Backend" },
+        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400", category: "Frontend" },
+        { name: "C", icon: SiC, color: "text-blue-500", category: "Backend" },
         { name: "PHP", icon: FaPhp, color: "text-indigo-500", category: "Backend" },
         { name: "HTML", icon: FaHtml5, color: "text-orange-600", category: "Frontend" },
         { name: "CSS", icon: FaCss3Alt, color: "text-blue-500", category: "Frontend" },
+
+        // Frameworks & Libraries
+        { name: "React (Vite)", icon: FaReact, color: "text-cyan-400", category: "Frontend" },
+        { name: "Laravel", icon: FaLaravel, color: "text-red-600", category: "Backend" },
+        { name: "Node.js", icon: FaNodeJs, color: "text-green-500", category: "Backend" },
+        { name: "Express.js", icon: SiExpress, color: "text-gray-400", category: "Backend" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500", category: "Frontend" },
         { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600", category: "Frontend" },
+        { name: "Framer Motion", icon: SiFramer, color: "text-pink-500", category: "Frontend" },
         { name: "Java Swing", icon: FaJava, color: "text-red-500", category: "Tools & Core" },
+
+        // Databases & Cloud
         { name: "MongoDB", icon: SiMongodb, color: "text-green-600", category: "Backend" },
         { name: "MySQL", icon: SiMysql, color: "text-blue-600", category: "Backend" },
+        { name: "Firebase", icon: SiFirebase, color: "text-yellow-500", category: "Tools & Core" },
+        { name: "AWS EC2", icon: FaAws, color: "text-orange-400", category: "Tools & Core" },
+
+        // DevOps & Tools
+        { name: "Docker", icon: FaDocker, color: "text-blue-500", category: "Tools & Core" },
+        { name: "GitHub Actions", icon: SiGithubactions, color: "text-blue-500", category: "Tools & Core" },
+        { name: "Jenkins", icon: SiJenkins, color: "text-red-500", category: "Tools & Core" },
         { name: "Git", icon: FaGitAlt, color: "text-orange-600", category: "Tools & Core" },
         { name: "GitHub", icon: FaGithub, color: "text-gray-800 dark:text-white", category: "Tools & Core" },
         { name: "Postman", icon: SiPostman, color: "text-orange-500", category: "Tools & Core" },
-        { name: "Firebase", icon: SiFirebase, color: "text-yellow-500", category: "Tools & Core" },
         { name: "Vercel", icon: SiVercel, color: "text-gray-900 dark:text-white", category: "Tools & Core" },
+        { name: "Google Maps API", icon: SiGooglemaps, color: "text-green-500", category: "Tools & Core" },
+
+        // Core CS Concepts
         { name: "DSA", icon: FaProjectDiagram, color: "text-primary", category: "Tools & Core" },
+        { name: "Competitive Programming", icon: FaTrophy, color: "text-yellow-500", category: "Tools & Core" },
         { name: "OOPs", icon: FaCubes, color: "text-secondary", category: "Tools & Core" },
         { name: "REST APIs", icon: FaServer, color: "text-green-400", category: "Backend" },
         { name: "Auth Systems", icon: FaShieldAlt, color: "text-red-400", category: "Backend" }

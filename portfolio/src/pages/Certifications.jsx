@@ -13,6 +13,7 @@ import generativeAiImg from "../assets/certs/GenerativeAi.png";
 import communicationSkillsImg from "../assets/certs/CommunicationSkills.png";
 import htmlCssThinqubatorImg from "../assets/certs/HTML&CSS_Thinqubators.png";
 import mernThinqubatorImg from "../assets/certs/MERN_Thinqubator.png";
+import dockerK8sImg from "../assets/certs/docker_k8s.png";
 import freeCodeCampImg from "../assets/certs/HTMLFreeCodeCamp.png";
 import cryptographyImg from "../assets/certs/NPTEL_Cryptography.png";
 import reactHackerRankImg from "../assets/certs/React-HackerRank.png";
@@ -183,6 +184,16 @@ export default function Certifications() {
             link: "https://drive.google.com/file/d/1sCHGjq6cNaltt-isB3cxYDQ_IpAF0Rl8/view?usp=sharing",
             thumbnail: htmlCssThinqubatorImg,
             details: "Building responsive layouts and semantic web structures with modern CSS."
+        },
+        {
+            title: "Introduction to Docker and Kubernetes",
+            issuer: "NASSCOM Foundation (Cisco CSR Program)",
+            platform: "thingQbator",
+            date: "N/A",
+            category: "Development",
+            link: "https://drive.google.com/file/d/1wAcySrn7Nvmj25JADyXSk_7Ag4kNNG8s/view?usp=sharing",
+            thumbnail: dockerK8sImg,
+            details: "Comprehensive introduction to containerization with Docker and container orchestration using Kubernetes as part of the thingQbator Cisco CSR program."
         },
         {
             title: "Responsive Web Design Developer Certification",
